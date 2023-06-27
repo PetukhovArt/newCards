@@ -1,7 +1,6 @@
 html {
   box-sizing: border-box;
   font-size: 100%;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -9,6 +8,8 @@ html {
 *,
 *::before,
 *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -38,4 +39,5 @@ body {
   color: var(--color-light-100);
 
   background-color: var(--color-dark-900);
+  //background-color: var(---color-light-100);
 }

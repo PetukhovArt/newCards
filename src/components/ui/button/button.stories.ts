@@ -34,7 +34,7 @@ export const Secondary: Story = {
 }
 export const Tertiary: Story = {
   args: {
-    variant: 'tertiary',
+    variant: 'outlined',
     children: 'Tertiary Button',
     disabled: false,
   },

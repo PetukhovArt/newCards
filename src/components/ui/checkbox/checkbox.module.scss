@@ -1,0 +1,88 @@
+@import '@/styles/mixins';
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  @include typography($fs: var(--font-size-s));
+
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+
+  color: var(--color-light-100);
+
+  transition: 0.2s ease-in-out;
+
+  &.disabled {
+    color: var(--color-dark-100);
+  }
+}
+
+.buttonWrapper {
+  all: unset;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px;
+
+  border-radius: 50%;
+
+  transition: 0.2s ease-in-out;
+
+  &.disabled {
+    cursor: default;
+  }
+
+  &:active:not(.disabled) {
+    background-color: var(--color-dark-100);
+  }
+
+  &:focus-within,
+  &:hover:not(.disabled)
+  //&:hover .root:not([data-state='checked'])
+  {
+    background-color: var(--color-dark-100);
+  }
+}
+
+.root {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+
+  background-color: inherit;
+  border: 2px solid var(--color-light-900);
+  border-radius: 2px;
+
+  transition: 0.2s ease-in-out;
+
+  &:focus:not(.disabled) {
+    background-color: var(--color-dark-100);
+  }
+
+  &:disabled {
+    cursor: initial;
+    background-color: inherit;
+  }
+
+  &:hover:not(.disabled) {
+    //background-color: var(--color-dark-100);
+  }
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

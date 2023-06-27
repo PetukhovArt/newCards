@@ -8,14 +8,14 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'tertiary', 'link'],
+      options: ['primary', 'secondary', 'outlined', 'link'],
       control: { type: 'radio' },
     },
   },
 } satisfies Meta<typeof Button>
 
 export default meta
-type Story = StoryObj<typeof meta>
+type Story = StoryObj<typeof Button>
 
 export const Primary: Story = {
   args: {
@@ -32,33 +32,24 @@ export const Secondary: Story = {
     disabled: false,
   },
 }
-export const Tertiary: Story = {
+export const Outlined: Story = {
   args: {
     variant: 'outlined',
     children: 'Tertiary Button',
     disabled: false,
   },
 }
-export const Link: Story = {
+export const ButtonAsLink: Story = {
   args: {
     variant: 'link',
-    children: 'Tertiary Button',
-    disabled: false,
+    children: 'button as link',
+    as: 'a',
   },
 }
-
 export const FullWidth: Story = {
   args: {
     variant: 'primary',
-    children: 'Full Width Button',
-    disabled: false,
+    children: 'full width button',
     fullWidth: true,
-  },
-}
-export const AsLink: Story = {
-  args: {
-    variant: 'primary',
-    children: 'Link that looks like a button',
-    as: 'a',
   },
 }

@@ -1,5 +1,0 @@
-@import './styles/mixins';
-
-.testDiv {
-  @include flex-block($gap: 10px);
-}

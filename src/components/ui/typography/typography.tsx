@@ -19,6 +19,7 @@ export type TypographyProps<T extends ElementType = 'p'> = {
     | 'overline'
     | 'link1'
     | 'link2'
+    | 'error'
 } & ComponentPropsWithoutRef<T>
 
 // С помощью Omit мы убираем из пропсов переданного компонента все пропсы,

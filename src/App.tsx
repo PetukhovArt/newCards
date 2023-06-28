@@ -6,6 +6,7 @@ import LogOutIcon from '@/assets/icons/LogOutIcon.tsx'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
+import { TextField } from '@/components/ui/text-field'
 import { Typography } from '@/components/ui/typography/typography.tsx'
 
 export function App() {
@@ -13,12 +14,28 @@ export function App() {
   // const checkedHandler = () => {
   //   setChecked(!checked)
   // }
+  const [value, setValue] = useState<string>('')
+
+  const handler = () => {
+    setValue('')
+  }
 
   return (
     <div className={s.testDiv}>
+      <TextField
+        value={value}
+        placeholder={'placeholder'}
+        // iconStart={<CloseIcon />}
+        // iconEnd={<EyeIcon />}
+        // search={true}
+        // inputType={'password'}
+        onClickClearValue={handler}
+        // errorMessage={'fdgfdgdg'}
+        onChange={e => setValue(e.target.value)}
+        // disabled={true}
+      />
       <Checkbox checked={checked} onChange={setChecked} label={'Check-box'} />
       {/*<Header/>*/}
-      {/*<Input/>*/}
       <Card>
         <Typography variant={'body1'}>Card Example</Typography>
       </Card>

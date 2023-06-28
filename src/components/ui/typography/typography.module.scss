@@ -72,6 +72,10 @@
   text-decoration-line: underline;
 }
 
+.error {
+  @include typography($fs: var(--font-size-xs), $lh: var(--line-height-m));
+}
+
 //colors ================================================================================
 .primary {
   color: var(--color-light-100);
@@ -89,10 +93,10 @@
   color: var(--color-info-500);
 }
 
-.error {
-  color: var(--color-danger-500);
-}
-
 .tertiary {
   color: var(--color-accent-500);
+}
+
+.error {
+  color: var(--color-danger-300);
 }

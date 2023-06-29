@@ -1,10 +1,13 @@
 {
   "name": "cards",
+  "homepage": "https://petukhovart.github.io//newCards",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "predeploy": "pnpm run build",
+    "deploy": "gh-pages -d dist",
     "build": "tsc && vite build",
     "format": "prettier --write src",
     "lint": "eslint --fix src/**/*.{tsx,ts,jsx,js} --no-error-on-unmatched-pattern && stylelint --fix src/{,*/}*.{scss,css} --allow-empty-input",
@@ -44,6 +47,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "eslint-plugin-storybook": "^0.6.12",
+    "gh": "^2.8.9",
+    "gh-pages": "^5.0.0",
+    "pages": "^0.0.16",
     "prettier": "2.8.8",
     "prop-types": "^15.8.1",
     "sass": "^1.63.6",

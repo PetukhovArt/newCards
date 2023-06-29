@@ -1,8 +1,8 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 
-import * as TaskStories from './Task.stories'
-import TaskList from './TaskList'
+import * as TaskStories from './Task.stories.tsx'
+import TaskList from './TaskList.tsx'
 
 // A super-simple mock of the state of the store
 export const MockedState = {

@@ -3,7 +3,7 @@
  */
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
-import { TaskType } from '@/components/ui/task/Task.tsx'
+import { TaskType } from '@/stories/testStories/task/Task.tsx'
 
 /*
  * The initial state of our store when the app loads.

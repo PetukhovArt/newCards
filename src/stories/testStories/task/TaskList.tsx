@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import Task, { TaskType } from './Task'
+import Task, { TaskType } from './Task.tsx'
 
 import { TaskBoxDataType, updateTaskState } from '@/store.ts'
 

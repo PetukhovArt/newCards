@@ -28,7 +28,7 @@ export const Range = (props: RangePropsType) => {
   } = props
 
   return (
-    <div className={s.range}>
+    <div className={`${s.range} ${disabled && s.disabled}`}>
       <div className={s.value}>
         <Typography variant={'body1'}>{value && value[0]}</Typography>
       </div>

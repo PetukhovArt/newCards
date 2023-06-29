@@ -30,6 +30,15 @@ export const DefaultRange: Story = {
     return <Range value={[value]} multiple onChange={changeHandler} {...args} />
   },
 }
+export const DisabledRange: Story = {
+  render: args => {
+    const [value, setValue] = useState(30)
+
+    const changeHandler = (value: number[]) => setValue(value[0])
+
+    return <Range value={[value]} disabled={true} multiple onChange={changeHandler} {...args} />
+  },
+}
 
 export const MultipleRange: Story = {
   render: args => {

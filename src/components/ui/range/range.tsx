@@ -4,7 +4,7 @@ import { Typography } from '../typography'
 
 import s from './range.module.scss'
 
-type RangeProps = {
+type RangePropsType = {
   value?: number[]
   defaultValue?: number[]
   min?: number
@@ -16,7 +16,7 @@ type RangeProps = {
   onChangeCommit?: () => void
 }
 
-export const Range = (props: RangeProps) => {
+export const Range = (props: RangePropsType) => {
   const {
     value,
     defaultValue,

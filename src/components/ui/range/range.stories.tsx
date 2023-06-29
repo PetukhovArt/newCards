@@ -41,4 +41,4 @@ export const MultipleRange: Story = {
   },
 }
 
-export const Simple: Story = {}
+export const RangeWithoutPropsValue: Story = {}

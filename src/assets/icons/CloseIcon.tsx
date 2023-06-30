@@ -17,3 +17,5 @@ const CloseIconSVG = (props: SVGProps<SVGSVGElement>) => (
 const CloseIcon = memo(CloseIconSVG)
 
 export default CloseIcon
+
+// transform: scale(2)

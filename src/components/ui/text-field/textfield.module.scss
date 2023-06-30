@@ -56,7 +56,7 @@ input {
 
   border-radius: 2px;
   outline: none;
-  box-shadow: 0 0 0 1px var(--color-dark-100);
+  box-shadow: 0 0 0 1px var(--color-dark-500);
 
   &::placeholder {
     color: var(--color-dark-100);
@@ -66,9 +66,15 @@ input {
     color: var(--color-dark-300);
   }
 
-  &:focus,
-  &:active:enabled {
+  &:focus-visible {
     box-shadow: 0 0 0 2px var(--color-info-700);
+  }
+
+  //TODO inf700 tab border
+
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 1px var(--color-light-100);
 
     &::placeholder {
       color: var(--color-dark-100);
@@ -84,7 +90,7 @@ input {
     }
   }
 
-  &:hover:not(&:focus) {
+  &:hover:not(&:disabled) {
     background-color: var(--color-dark-700);
   }
 

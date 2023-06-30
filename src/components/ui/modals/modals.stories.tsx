@@ -22,4 +22,3 @@ export const Primary: Story = {
     children: 'Primary Button',
   },
 }
-export default {}

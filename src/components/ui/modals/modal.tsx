@@ -7,7 +7,7 @@ import {
   DialogOverlay,
   DialogPortal,
   DialogTitle,
-  DialogTrigger,
+  // DialogTrigger,
 } from '@radix-ui/react-dialog'
 import { Separator } from '@radix-ui/react-separator'
 import { clsx } from 'clsx'
@@ -20,10 +20,11 @@ import { Typography } from '@/components/ui/typography'
 export type ModalSize = 'sm' | 'md' | 'lg'
 
 export type ModalProps = {
-  renderTriggerButton: () => ReactNode
+  open: boolean
+  onClose?: () => void
   renderCancelButton?: () => ReactNode
-  renderActionButton: () => ReactNode
-  contentSeparator?: boolean
+  renderActionButton?: () => ReactNode
+  showSeparator?: boolean
   showCloseButton?: boolean
   title?: string
   size?: ModalSize //sm - 367px,md - 532px,lg - 764px.
@@ -32,7 +33,8 @@ export type ModalProps = {
 } & ComponentProps<'div'>
 
 export const Modal: FC<ModalProps> = ({
-  renderTriggerButton,
+  onClose,
+  open,
   renderActionButton,
   renderCancelButton,
   size = 'md',
@@ -40,44 +42,47 @@ export const Modal: FC<ModalProps> = ({
   className,
   children,
   showCloseButton = true,
-  contentSeparator = true,
+  showSeparator = true,
 }) => {
   const classNames = {
     content: getContentClassName(size, className),
   }
 
+  function onCloseHandler() {
+    onClose?.()
+  }
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>{renderTriggerButton && renderTriggerButton()}</DialogTrigger>
-      <DialogPortal>
-        <DialogOverlay className={s.DialogOverlay} />
-        <DialogContent className={classNames.content}>
-          <div className={s.titleWrapper}>
-            {showCloseButton && (
-              <DialogClose>
-                <button className={s.IconButton}>
-                  <CloseIcon style={{ transform: 'scale(1.5)' }} />
-                </button>
+    <Dialog open={open} onOpenChange={onCloseHandler}>
+      {open && (
+        <DialogPortal>
+          <DialogOverlay className={s.DialogOverlay} />
+          <DialogContent className={classNames.content}>
+            <div className={s.titleWrapper}>
+              {showCloseButton && (
+                <DialogClose>
+                  <button className={s.IconButton}>
+                    <CloseIcon />
+                  </button>
+                </DialogClose>
+              )}
+              <DialogTitle className={s.DialogTitle}>
+                <Typography variant={'h2'}>{title}</Typography>
+                {showSeparator && <Separator className={s.separator} />}
+              </DialogTitle>
+            </div>
+
+            <div className={s.contentBox}>{children}</div>
+
+            <div className={s.footerBlock}>
+              <DialogClose>{renderCancelButton && renderCancelButton()}</DialogClose>
+              <DialogClose className={s.actionButton}>
+                {renderActionButton && renderActionButton()}
               </DialogClose>
-            )}
-            <DialogTitle className={s.DialogTitle}>
-              <Typography variant={'h2'}>{title}</Typography>
-              {contentSeparator && <Separator className={s.separator} />}
-            </DialogTitle>
-          </div>
-
-          <div className={s.contentBox}>{children}</div>
-
-          <div className={s.footerBlock}>
-            <DialogClose asChild className={s.cancelButton}>
-              {renderCancelButton && renderCancelButton()}
-            </DialogClose>
-            <DialogClose asChild className={s.actionButton}>
-              {renderActionButton && renderActionButton()}
-            </DialogClose>
-          </div>
-        </DialogContent>
-      </DialogPortal>
+            </div>
+          </DialogContent>
+        </DialogPortal>
+      )}
     </Dialog>
   )
 }

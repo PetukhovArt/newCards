@@ -21,13 +21,13 @@ type Story = StoryObj<typeof TextField>
 export const Primary: Story = {
   args: {
     type: 'text',
-    label: 'Primary',
+    placeholder: 'placeholder',
   },
 }
 export const Invalid: Story = {
   args: {
     type: 'text',
-    label: 'Error input',
+
     errorMessage: 'error',
     value: 'error',
   },
@@ -57,13 +57,12 @@ export const Search: Story = {
 export const Password: Story = {
   args: {
     type: 'password',
-    label: 'Password input',
   },
 }
 export const Disabled: Story = {
   args: {
     type: 'text',
-    label: 'disabled',
+
     disabled: true,
   },
 }

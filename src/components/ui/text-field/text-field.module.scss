@@ -67,6 +67,8 @@ input {
   outline: none;
   box-shadow: 0 0 0 1px var(--color-dark-500);
 
+  transition: 0.3s;
+
   &::placeholder {
     color: var(--color-dark-100);
   }
@@ -75,19 +77,19 @@ input {
     color: var(--color-dark-300);
   }
 
-  &:focus-visible {
-    box-shadow: 0 0 0 2px var(--color-info-700);
-  }
-
-  //TODO inf700 tab border
+  //TODO: focus visible border info700 var
 
   &:focus,
-  &:active:not(&:disabled) {
+  &:active:enabled {
     box-shadow: 0 0 0 1px var(--color-light-100);
 
     &::placeholder {
       color: var(--color-dark-100);
     }
+  }
+
+  &:hover:not(&:disabled) {
+    background-color: var(--color-dark-700);
   }
 
   &.error {
@@ -97,10 +99,6 @@ input {
     &::placeholder {
       color: var(--color-danger-300);
     }
-  }
-
-  &:hover:not(&:disabled) {
-    background-color: var(--color-dark-700);
   }
 
   &[data-icon*='start'] {
@@ -121,6 +119,14 @@ input {
   right: 5px;
 
   display: flex;
+
+  border-radius: 100%;
+
+  transition: 0.4s;
+
+  &:hover {
+    background-color: grey;
+  }
 
   &.disabled {
     cursor: unset;

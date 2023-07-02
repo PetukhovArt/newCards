@@ -1,70 +1,44 @@
-import {
-  ReactNode,
-  KeyboardEvent,
-  FC,
-  ComponentProps,
-  useState,
-  useRef,
-  InputHTMLAttributes,
-} from 'react'
+import { ReactNode, KeyboardEvent, FC, ComponentProps, useState } from 'react'
 
 import * as Label from '@radix-ui/react-label'
 import clsx from 'clsx'
 
-import s from './textfield.module.scss'
+import s from './text-field.module.scss'
 
 import CloseIcon from '@/assets/icons/CloseIcon.tsx'
 import EyeIcon from '@/assets/icons/EyeIcon.tsx'
+import EyeIconOff from '@/assets/icons/EyeIconOff.tsx'
 import SearchIcon from '@/assets/icons/SearchIcon.tsx'
 import { Typography } from '@/components/ui/typography'
 
 export type TextFieldProps = {
-  search?: boolean
-  disabled?: boolean
-  inputType?: string
   value?: string
-  label?: ReactNode
+  label?: string
   errorMessage?: string
   iconStart?: ReactNode
   iconEnd?: ReactNode
   onEnter?: (e: KeyboardEvent<HTMLInputElement>) => void
-  onKeyDown?: (e: KeyboardEvent<HTMLInputElement>) => void
-  onClickClearValue?: () => void
-  className?: string
-  placeholder?: string
-} & ComponentProps<'input'> &
-  InputHTMLAttributes<HTMLInputElement>
+  onClearValue?: () => void
+} & ComponentProps<'input'>
 
 export const TextField: FC<TextFieldProps> = ({
-  search,
   disabled,
-  placeholder,
   value,
-  inputType = 'text',
+  type,
   label,
   errorMessage,
   iconStart,
   iconEnd,
   onEnter,
   onKeyDown,
-  onClickClearValue,
-  className,
+  onClearValue,
   ...rest
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const showError = errorMessage && errorMessage.length > 0
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [isActive, setIsActive] = useState(false)
 
-  const handleFocus = () => {
-    setIsActive(true)
-  }
-  const handleBlur = () => {
-    setIsActive(false)
-  }
-
-  if (search) {
-    iconStart = <SearchIcon color={isActive ? 'var(--color-light-100)' : 'var(--color-dark-100)'} />
+  if (type === 'search') {
+    iconStart = <SearchIcon />
   }
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (onEnter && e.key === 'Enter') {
@@ -73,11 +47,12 @@ export const TextField: FC<TextFieldProps> = ({
     onKeyDown?.(e)
   }
   const classNames = {
-    root: clsx(s.root, className),
+    root: clsx(s.root, rest.className),
     input: clsx(s.input, showError && s.error),
     iconButton: clsx(s.iconButton, disabled && s.disabled),
+    iconStart: clsx(s.iconStart),
   }
-  const showClearValueIcon = !iconEnd && !showError && onClickClearValue && value?.length! > 0
+  const showClearValueIcon = !iconEnd && !showError && onClearValue && value?.length! > 0
   const dataIconStart = iconStart ? 'start' : ''
   const dataIconEnd = iconEnd || showClearValueIcon ? 'end' : ''
   const dataIcon = dataIconStart + dataIconEnd
@@ -96,27 +71,23 @@ export const TextField: FC<TextFieldProps> = ({
         <div className={s.inputContainer}>
           {iconStart && <span className={s.iconStart}>{iconStart}</span>}
           <input
-            disabled={disabled}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            data-icon={dataIcon}
-            ref={inputRef}
-            className={classNames.input}
-            type={showPassword ? 'text' : inputType}
             value={value}
-            placeholder={placeholder}
+            disabled={disabled}
+            data-icon={dataIcon}
+            className={classNames.input}
+            type={showPassword ? 'text' : type}
             onKeyDown={handleKeyDown}
             {...rest}
           />
 
-          {inputType === 'password' && (
+          {type === 'password' && (
             <button className={classNames.iconButton} type="button" onClick={onClickShowValue}>
-              {!showPassword ? <EyeIcon /> : <EyeIcon color={'var(--color-info-500)'} />}
+              {!showPassword ? <EyeIcon /> : <EyeIconOff />}
             </button>
           )}
 
           {showClearValueIcon && (
-            <button className={classNames.iconButton} onClick={onClickClearValue} type="button">
+            <button className={classNames.iconButton} onClick={onClearValue} type="button">
               {<CloseIcon />}
             </button>
           )}

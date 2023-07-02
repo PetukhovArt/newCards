@@ -1,16 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Modal } from '@/components/ui/modals/modal.tsx'
+import { Modal } from './'
+
+import { Button } from '@/components/ui/button'
 
 const meta = {
   title: 'Components/Modal',
   component: Modal,
   tags: ['autodocs'],
   argTypes: {
-    open: {
-      options: ['primary', 'secondary', 'outlined', 'link'],
-      control: { type: 'radio' },
+    renderTriggerButton: { control: 'Trigger Button' },
+    renderCancelButton: { control: 'Cancel Button' },
+    renderActionButton: { control: 'Action Button' },
+    contentSeparator: {
+      options: [true, false],
+      control: { type: 'boolean' },
     },
+    showCloseButton: {
+      options: [true, false],
+      control: { type: 'boolean' },
+    },
+    title: { control: 'string' },
+    size: { control: 'modal size' },
+    children: { control: 'components' },
   },
 } satisfies Meta<typeof Modal>
 
@@ -19,6 +31,27 @@ type Story = StoryObj<typeof Modal>
 
 export const Primary: Story = {
   args: {
-    children: 'Primary Button',
+    renderTriggerButton: () => <Button>Trigger Button</Button>,
+    renderCancelButton: () => <Button>Cancel</Button>,
+    renderActionButton: () => <Button>Action</Button>,
   },
 }
+
+// export const Default: Story = {
+//   render: args => {
+//     const [checked, setChecked] = useState(false)
+//
+//     return (
+//       <>
+//         <Checkbox
+//           {...args}
+//           label={'Check-box'}
+//           disabled={false}
+//           checked={checked}
+//           onChange={() => setChecked(!checked)}
+//         />
+//         <div>Checked: {checked ? 'true' : 'false'}</div>
+//       </>
+//     )
+//   },
+// }

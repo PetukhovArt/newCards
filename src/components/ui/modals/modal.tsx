@@ -1,7 +1,5 @@
 import { ComponentProps, FC, ReactNode } from 'react'
 
-import CloseIcon from '@/assets/icons/CloseIcon.tsx'
-import { Typography } from '@/components/ui/typography'
 import {
   Dialog,
   DialogClose,
@@ -16,6 +14,9 @@ import { clsx } from 'clsx'
 
 import s from './modal.module.scss'
 
+import CloseIcon from '@/assets/icons/CloseIcon.tsx'
+import { Typography } from '@/components/ui/typography'
+
 export type ModalSize = 'sm' | 'md' | 'lg'
 
 export type ModalProps = {
@@ -23,12 +24,11 @@ export type ModalProps = {
   renderCancelButton?: () => ReactNode
   renderActionButton: () => ReactNode
   contentSeparator?: boolean
-  onClose?: () => void
   showCloseButton?: boolean
   title?: string
   size?: ModalSize //sm - 367px,md - 532px,lg - 764px.
-  description?: string
   children?: ReactNode
+  className?: string
 } & ComponentProps<'div'>
 
 export const Modal: FC<ModalProps> = ({

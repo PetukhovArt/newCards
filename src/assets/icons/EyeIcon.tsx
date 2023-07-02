@@ -1,17 +1,16 @@
 import { SVGProps, memo } from 'react'
-const EyeIconSVG = (props: SVGProps<SVGSVGElement>) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" {...props}>
-    <g fill={props.color ? props.color : '#fff'} clipPath="url(#a)">
-      <path d="M18.2 9.6c-.5-1-3.4-5.6-8.4-5.4-4.6 0-7.3 4.1-8 5.4a.8.8 0 0 0 0 .8c.5 1 3.3 5.4 8.2 5.4h.2c4.6 0 7.3-4.1 8-5.4a.8.8 0 0 0 0-.8Zm-8 4.6c-3.6 0-6-3-6.7-4.2.9-1.3 3-4 6.4-4.2 3.5 0 5.9 3 6.6 4.2-.8 1.3-3 4-6.3 4.2Z" />
-      <path d="M10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm0 4.3a1.2 1.2 0 1 1 0-2.5 1.2 1.2 0 0 1 0 2.4Z" />
-    </g>
-    <defs>
-      <clipPath id="a">
-        <path fill="#fff" d="M0 0h20v20H0z" />
-      </clipPath>
-    </defs>
+const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    fill={props.color ? props.color : '#fff'}
+    xmlns="http://www.w3.org/2000/svg"
+    width={20}
+    height={20}
+    viewBox="0 -960 960 960"
+    {...props}
+  >
+    <path d="M480-312q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Zm0-72q-40 0-68-28t-28-68q0-40 28-68t68-28q40 0 68 28t28 68q0 40-28 68t-68 28Zm0 192q-143 0-260-78T48-480q55-131 172-209t260-79q143 0 260 79t172 209q-55 131-172 210t-260 78Zm0-288Zm0 216q112 0 207-58t146-158q-51-100-146-158t-207-58q-112 0-207 58T127-480q51 100 146 158t207 58Z" />
   </svg>
 )
-const EyeIcon = memo(EyeIconSVG)
+const EyeIcon = memo(SvgComponent)
 
 export default EyeIcon

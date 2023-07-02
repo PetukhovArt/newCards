@@ -34,25 +34,23 @@ export const Checkbox: FC<CheckboxPropsType> = ({
   }
 
   return (
-    <div className={classNames.container}>
-      <LabelRadix.Root className={classNames.label}>
-        <div className={classNames.buttonWrapper}>
-          <CheckboxRadix.Root
-            className={classNames.root}
-            checked={checked}
-            onCheckedChange={() => onChange(!checked)}
-            disabled={disabled}
-            required={required}
-          >
-            {checked && (
-              <CheckboxRadix.Indicator className={classNames.indicator}>
-                <img src={!disabled ? checkBoxDefaultSelected : checkedDisabled} alt="selected" />
-              </CheckboxRadix.Indicator>
-            )}
-          </CheckboxRadix.Root>
-        </div>
-        {label}
-      </LabelRadix.Root>
-    </div>
+    <LabelRadix.Root className={classNames.label}>
+      <div className={classNames.buttonWrapper}>
+        <CheckboxRadix.Root
+          className={classNames.root}
+          checked={checked}
+          onCheckedChange={() => onChange(!checked)}
+          disabled={disabled}
+          required={required}
+        >
+          {checked && (
+            <CheckboxRadix.Indicator className={classNames.indicator}>
+              <img src={!disabled ? checkBoxDefaultSelected : checkedDisabled} alt="selected" />
+            </CheckboxRadix.Indicator>
+          )}
+        </CheckboxRadix.Root>
+      </div>
+      {label}
+    </LabelRadix.Root>
   )
 }

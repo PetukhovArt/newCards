@@ -44,9 +44,9 @@ export const Search: Story = {
       <>
         <TextField
           {...args}
+          type={'search'}
           value={value}
           onChange={e => handler(e)}
-          type={'search'}
           onClearValue={() => setValue('')}
         />
       </>

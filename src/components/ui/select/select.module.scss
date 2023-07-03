@@ -1,0 +1,103 @@
+@import '@/styles/mixins';
+
+/* reset */
+button {
+  all: unset;
+}
+
+.SelectTrigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  padding: 0 12px;
+
+  font-weight: 400;
+
+  box-shadow: 0 0 0 1px var(--color-dark-300);
+}
+
+.SelectTrigger:hover:not(:disabled) {
+  background-color: var(--color-dark-500);
+  box-shadow: 0 0 0 1px var(--color-dark-100);
+}
+
+.SelectTrigger:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-info-700);
+}
+
+.SelectTrigger[data-disabled] {
+  color: var(--color-dark-300);
+}
+
+.SelectValue[data-placeholder] {
+  color: var(--color-dark-300);
+}
+
+.SelectContent {
+  position: absolute;
+  left: 0;
+
+  overflow: hidden;
+
+  width: var(--radix-select-trigger-width);
+  max-height: var(--radix-select-content-available-height);
+
+  box-shadow: 0 0 0 1px var(--color-dark-300);
+}
+
+.SelectItem {
+  user-select: none;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  height: 36px;
+  padding: 0 12px;
+
+  border-radius: 2px;
+}
+
+.SelectItem[data-disabled] {
+  pointer-events: none;
+  color: var(--color-dark-300);
+}
+
+.SelectItem[data-highlighted] {
+  color: var(--color-accent-300);
+  background-color: var(--color-accent-900);
+  outline: none;
+}
+
+.SelectSeparator {
+  height: 1px;
+  background-color: var(--color-dark-500);
+}
+
+.SelectItemIndicator {
+  position: absolute;
+  right: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+
+  color: white;
+}
+
+.SelectScrollButton {
+  cursor: default;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 25px;
+
+  color: white;
+}

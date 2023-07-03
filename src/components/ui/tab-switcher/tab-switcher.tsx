@@ -9,18 +9,28 @@ type TabSwitcherPropsType = {
   defaultValue?: string
   children?: ReactNode
   orientation?: 'horizontal' | 'vertical'
+  activationMode?: 'automatic' | 'manual'
   loop?: boolean
   onChange?: (value: string) => void
 }
 
 export const TabSwitcher = (props: TabSwitcherPropsType) => {
-  const { value, defaultValue, children, orientation, loop = true, onChange } = props
+  const {
+    value,
+    defaultValue,
+    children,
+    orientation,
+    activationMode = 'manual',
+    loop = true,
+    onChange,
+  } = props
 
   return (
     <Tabs.Root
       value={value}
       defaultValue={defaultValue}
       orientation={orientation}
+      activationMode={activationMode}
       onValueChange={onChange}
       className={s.TabsRoot}
     >

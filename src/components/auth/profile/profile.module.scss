@@ -1,0 +1,39 @@
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 33px 36px 41px;
+  text-align: center;
+
+  .avatar {
+    margin-top: 27px;
+  }
+
+  .textField {
+    text-align: left;
+  }
+
+  .name {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 6px;
+
+    .editIcon {
+      cursor: pointer;
+    }
+  }
+
+  .email {
+    color: var(--color-dark-100);
+  }
+
+  .logoutBtn {
+    margin-top: 13px;
+  }
+
+  .saveBtn {
+    margin-top: 36px;
+  }
+}

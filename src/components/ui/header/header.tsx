@@ -6,23 +6,18 @@ import { ProfileInfo } from './profile-info'
 
 type HeaderPropsType = {
   isLoggedIn: boolean
+  name: string
+  avatar: string
 }
 
-export const Header = ({ isLoggedIn }: HeaderPropsType) => {
+export const Header = (props: HeaderPropsType) => {
+  const { isLoggedIn, name, avatar } = props
+
   return (
     <div className={s.header}>
       <img src={logo} alt="logo" />
 
-      {isLoggedIn ? (
-        <ProfileInfo
-          name={'User'}
-          avatar={
-            'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80'
-          }
-        />
-      ) : (
-        <Button as={'a'}>Sign in</Button>
-      )}
+      {isLoggedIn ? <ProfileInfo name={name} avatar={avatar} /> : <Button as={'a'}>Sign in</Button>}
     </div>
   )
 }

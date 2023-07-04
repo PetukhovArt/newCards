@@ -135,3 +135,25 @@ input {
     color: var(--color-dark-300);
   }
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background: linear-gradient(
+    top,
+    rgb(255 255 255 / 0%) 0%,
+    rgb(0 174 255 / 4%) 50%,
+    rgb(255 255 255 / 0%) 51%,
+    rgb(0 174 255 / 3%) 100%
+  );
+  transition: background-color 5000s ease-in-out 0s;
+
+  -webkit-text-fill-color: #dfdfdf;
+}

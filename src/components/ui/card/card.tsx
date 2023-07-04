@@ -6,7 +6,7 @@ import s from './card.module.scss'
 
 type CardPropsType = {
   children: ReactNode
-  className: string
+  className?: string
 } & ComponentPropsWithoutRef<'div'>
 
 export const Card = ({ children, className }: CardPropsType) => {

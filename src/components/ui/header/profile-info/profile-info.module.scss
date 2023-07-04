@@ -38,9 +38,13 @@
 }
 
 .profileInfo {
+  cursor: pointer;
+  user-select: none;
+
   display: flex;
   gap: 14px;
   align-items: center;
+
   color: black;
 }
 

@@ -10,7 +10,6 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     disabled: {
-      options: [true, false],
       control: { type: 'boolean' },
     },
   },
@@ -36,6 +35,18 @@ export const DisabledRadioGroup: Story = {
       <RadioGroup disabled={true} {...args}>
         <RadioButton value={'1'} label={'Radio-Group'} />
         <RadioButton value={'2'} label={'Radio-Group'} />
+        <RadioButton value={'3'} label={'Radio-Group'} />
+      </RadioGroup>
+    )
+  },
+}
+
+export const DisabledRadioButton: Story = {
+  render: args => {
+    return (
+      <RadioGroup {...args}>
+        <RadioButton value={'1'} label={'Radio-Group'} />
+        <RadioButton disabled={true} value={'2'} label={'Radio-Group'} />
         <RadioButton value={'3'} label={'Radio-Group'} />
       </RadioGroup>
     )

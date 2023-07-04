@@ -7,14 +7,20 @@ import { Typography } from '@/components/ui/typography'
 type RadioButtonProps = {
   value: string
   label?: string
+  disabled?: boolean
 }
 export const RadioButton = (props: RadioButtonProps) => {
-  const { value, label } = props
+  const { value, label, disabled = false } = props
 
   return (
     <div className={s.radioButtonContainer}>
       <div className={s.radioButtonBackGround}>
-        <RadioGroup.Item className={s.RadioGroupItem} value={value} id={value}>
+        <RadioGroup.Item
+          disabled={disabled}
+          className={`${s.RadioGroupItem} ${disabled && s.disabled}`}
+          value={value}
+          id={value}
+        >
           <RadioGroup.Indicator className={s.RadioGroupIndicator} />
         </RadioGroup.Item>
       </div>

@@ -26,11 +26,13 @@
     "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-tabs": "^1.0.4",
     "@reduxjs/toolkit": "^1.9.5",
+    "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.45.1",
-    "react-redux": "^8.1.1"
+    "react-redux": "^8.1.1",
+    "react-router-dom": "^6.14.1"
   },
   "devDependencies": {
     "@it-incubator/eslint-config": "^0.1.2",

@@ -1,0 +1,10 @@
+@import '../styles/mixins';
+
+.main {
+  @include flex-block;
+
+  height: calc(100% - 60px);
+
+  //font-size: calc(10px + 2vmin);
+  background: var(--color-dark-900);
+}

@@ -1,7 +1,7 @@
 import { useController, useForm } from 'react-hook-form'
 
-import { Button } from '../../ui/button'
-import { TextField } from '../../ui/text-field'
+import { Button } from '@/components/ui/button'
+import { TextField } from '@/components/ui/text-field'
 
 type FormValues = {
   login: string

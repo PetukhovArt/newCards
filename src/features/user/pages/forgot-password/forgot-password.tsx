@@ -1,30 +1,18 @@
-import s from './forgot-password.module.css'
+import s from './forgot-password.module.scss'
 
+import { ForgotFormValues, ForgotPasswordForm } from '@/components/auth/forgot-password-form'
 import { useForgotPasswordMutation } from '@/features/user/service/user.api.ts'
-
-type FormValues = {
-  login: string
-  password: string
-}
 
 export const ForgotPassword = () => {
   const [forgotPassword] = useForgotPasswordMutation()
 
-  const forgotPasswordHandler = () => {
-    const args = {
-      email: 's1abak38@gmail.com',
-      message: 'forgot',
-    }
-
-    forgotPassword(args)
+  const forgotPasswordHandler = (data: ForgotFormValues) => {
+    forgotPassword(data)
   }
 
   return (
     <div className={s.container}>
-      <div className={s.header}>
-        Forgot your password?
-        <button onClick={forgotPasswordHandler}>forgot</button>
-      </div>
+      <ForgotPasswordForm onSubmitCallback={forgotPasswordHandler} linkPath={'/login'} />
     </div>
   )
 }

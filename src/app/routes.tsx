@@ -1,6 +1,7 @@
 import { createHashRouter, createRoutesFromElements, Route } from 'react-router-dom'
 
 import { App } from '@/app/App.tsx'
+import { ForgotPassword } from '@/features/user/pages/forgot-password/forgot-password.tsx'
 
 export enum RouteNames {
   START_PAGE = '/',
@@ -27,7 +28,7 @@ export const router = createHashRouter(
       {/*<Route path={RouteNames.CHECK_EMAIL} element={<CheckEmail />} />*/}
       {/*<Route path={RouteNames.SET_NEW_PASSWORD} element={<SetPassword />} />*/}
       {/*<Route path={`${RouteNames.SET_NEW_PASSWORD}/:token`} element={<SetPassword />} />*/}
-      {/*<Route path={RouteNames.FORGOT_PASSWORD} element={<FogotPassword />} />*/}
+      <Route path={RouteNames.FORGOT_PASSWORD} element={<ForgotPassword />} />
       {/*<Route path={RouteNames.PACKS} element={<Packs />} />*/}
       {/*<Route path={RouteNames.LEARN} element={<Learn />} />*/}
       {/*<Route path={RouteNames.CARDS} element={<Cards />} />*/}

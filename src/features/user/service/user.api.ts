@@ -41,7 +41,15 @@ export const userApi = createApi({
           return {
             method: 'POST',
             url: 'auth/forgot',
-            body: { ...args },
+            body: {
+              email: args.email,
+              from: 'test-front-admin',
+              message: `<div style="background-color: lime; padding: 15px">
+                        password recovery link: 
+                        <a href='https://petukhovart.github.io/newCards/#/set-new-password/$token$'>
+                        link</a>
+                        </div>`,
+            },
           }
         },
       }),

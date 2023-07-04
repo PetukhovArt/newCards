@@ -16,6 +16,7 @@ export const TabTrigger = (props: TabTriggerPropsType) => {
 
   return (
     <Tabs.Trigger
+      tabIndex={0}
       value={value}
       disabled={disabled}
       className={`${s.TabsTrigger} ${disabled && s.disabled}`}

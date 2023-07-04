@@ -1,10 +1,10 @@
-import * as Slider from '@radix-ui/react-slider'
+import * as SliderRadix from '@radix-ui/react-slider'
 
 import { Typography } from '../typography'
 
-import s from './range.module.scss'
+import s from './slider.module.scss'
 
-type RangePropsType = {
+type SliderPropsType = {
   value?: number[]
   defaultValue?: number[]
   min?: number
@@ -16,7 +16,7 @@ type RangePropsType = {
   onChangeCommit?: () => void
 }
 
-export const Range = (props: RangePropsType) => {
+export const Slider = (props: SliderPropsType) => {
   const {
     value,
     defaultValue,
@@ -32,7 +32,7 @@ export const Range = (props: RangePropsType) => {
       <div className={s.value}>
         <Typography variant={'body1'}>{value && value[0]}</Typography>
       </div>
-      <Slider.Root
+      <SliderRadix.Root
         value={value}
         defaultValue={defaultValue}
         min={min}
@@ -43,12 +43,12 @@ export const Range = (props: RangePropsType) => {
         onValueCommit={props.onChangeCommit}
         className={s.SliderRoot}
       >
-        <Slider.Track className={s.SliderTrack}>
-          <Slider.Range className={s.SliderRange} />
-        </Slider.Track>
-        <Slider.Thumb className={s.SliderThumb} />
-        {multiple && <Slider.Thumb className={s.SliderThumb} />}
-      </Slider.Root>
+        <SliderRadix.Track className={s.SliderTrack}>
+          <SliderRadix.Range className={s.SliderRange} />
+        </SliderRadix.Track>
+        <SliderRadix.Thumb className={s.SliderThumb} />
+        {multiple && <SliderRadix.Thumb className={s.SliderThumb} />}
+      </SliderRadix.Root>
       <div className={s.value}>
         <Typography variant={'body1'}>{(value && value[1]) || max}</Typography>
       </div>

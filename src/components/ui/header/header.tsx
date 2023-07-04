@@ -13,7 +13,16 @@ export const Header = ({ isLoggedIn }: HeaderPropsType) => {
     <div className={s.header}>
       <img src={logo} alt="logo" />
 
-      {isLoggedIn ? <ProfileInfo /> : <Button as={'a'}>Sign in</Button>}
+      {isLoggedIn ? (
+        <ProfileInfo
+          name={'User'}
+          avatar={
+            'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80'
+          }
+        />
+      ) : (
+        <Button as={'a'}>Sign in</Button>
+      )}
     </div>
   )
 }

@@ -28,6 +28,11 @@
     border: 1px solid var(--color-accent-500);
   }
 
+  &:focus {
+    background-color: var(--color-dark-700);
+    box-shadow: 0 0 0 2px var(--color-info-900);
+  }
+
   &:first-child {
     border-right: 1px solid transparent;
     border-top-left-radius: 2px;
@@ -44,6 +49,11 @@
 .TabsTrigger[data-state='active'] {
   background-color: var(--color-accent-500);
   border: 1px solid var(--color-accent-500);
+}
+
+.TabsTrigger[data-state='focus'] {
+  background-color: var(--color-dark-700);
+  box-shadow: 0 0 0 2px var(--color-info-900);
 }
 
 .disabled {

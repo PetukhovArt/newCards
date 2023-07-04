@@ -1,7 +1,5 @@
 export type ForgotArgs = {
   email: string
-  from?: string
-  message: string
 }
 export type ForgotRes = {
   info: string

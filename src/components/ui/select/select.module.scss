@@ -18,6 +18,14 @@ button {
   box-shadow: 0 0 0 1px var(--color-dark-300);
 }
 
+.error {
+  box-shadow: 0 0 0 1px var(--color-danger-500);
+}
+
+.SelectTrigger[data-state='open'] > .icon {
+  transform: rotate(180deg);
+}
+
 .SelectTrigger:hover:not(:disabled) {
   background-color: var(--color-dark-500);
   box-shadow: 0 0 0 1px var(--color-dark-100);
@@ -31,11 +39,11 @@ button {
   color: var(--color-dark-300);
 }
 
-.SelectValue[data-placeholder] {
+.value[data-placeholder] {
   color: var(--color-dark-300);
 }
 
-.SelectContent {
+.content {
   position: absolute;
   left: 0;
 
@@ -47,7 +55,7 @@ button {
   box-shadow: 0 0 0 1px var(--color-dark-300);
 }
 
-.SelectItem {
+.option {
   user-select: none;
 
   position: relative;
@@ -61,25 +69,25 @@ button {
   border-radius: 2px;
 }
 
-.SelectItem[data-disabled] {
+.option[data-disabled] {
   pointer-events: none;
   color: var(--color-dark-300);
 }
 
-.SelectItem[data-highlighted] {
+.option[data-highlighted] {
   color: var(--color-accent-300);
   background-color: var(--color-accent-900);
   outline: none;
 }
 
-.SelectSeparator {
+.separator {
   height: 1px;
   background-color: var(--color-dark-500);
 }
 
-.SelectItemIndicator {
+.optionIndicator {
   position: absolute;
-  right: 0;
+  right: 6px;
 
   display: inline-flex;
   align-items: center;
@@ -90,7 +98,7 @@ button {
   color: white;
 }
 
-.SelectScrollButton {
+.scrollButton {
   cursor: default;
 
   display: flex;

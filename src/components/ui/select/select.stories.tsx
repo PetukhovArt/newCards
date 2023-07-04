@@ -6,19 +6,50 @@ const meta = {
   title: 'Components/SuperSelect',
   component: SuperSelect,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+    disabled: {
+      options: [true, false],
+      control: { type: 'boolean' },
+    },
+    label: {
+      options: ['label', null],
+      control: { type: 'radio' },
+    },
+    errorMessage: {
+      options: ['error message', null],
+      control: { type: 'radio' },
+    },
+    showOptionSeparator: {
+      options: [true, false],
+      control: { type: 'boolean' },
+    },
+  },
 } satisfies Meta<typeof SuperSelect>
 
 export default meta
 type Story = StoryObj<typeof SuperSelect>
 
-export const DefaultSelect: Story = {
-  render: () => {
-    return (
-      <>
-        {/*<Select {...args}></Select>*/}
-        <SuperSelect options={['1', '2', '3', '4']} showOptionSeparator={true}></SuperSelect>
-      </>
-    )
+export const Simple: Story = {
+  args: {},
+}
+export const WithLabel: Story = {
+  args: {
+    label: 'label',
+  },
+}
+export const WithItemSeparator: Story = {
+  args: {
+    showOptionSeparator: true,
+  },
+}
+export const WithErrorMessage: Story = {
+  args: {
+    errorMessage: 'error message',
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
   },
 }

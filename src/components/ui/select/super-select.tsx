@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from 'react'
+import { CSSProperties } from 'react'
 
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
 import { Label } from '@radix-ui/react-label'
@@ -17,6 +17,7 @@ import {
   SelectValue,
   SelectViewport,
 } from '@radix-ui/react-select'
+import { clsx } from 'clsx'
 
 import s from './select.module.scss'
 
@@ -27,7 +28,7 @@ type SuperSelectProps = {
   width?: CSSProperties['width']
   height?: CSSProperties['height']
   options: string[]
-  onValueChange?: (value: string) => void
+  onValueChange: (value: string) => void
   label?: string
   showOptionSeparator?: boolean
   disabled?: boolean
@@ -39,7 +40,7 @@ export const SuperSelect = ({
   errorMessage,
   required = false,
   placeholder = 'Select-box',
-  options = ['TestVal1', 'TestVal2', 'TestVal3'],
+  options = ['First', 'Second', 'Third'],
   onValueChange,
   width = '210px',
   height = '36px',
@@ -47,7 +48,9 @@ export const SuperSelect = ({
   disabled,
   showOptionSeparator,
 }: SuperSelectProps) => {
-  const [open, setOpen] = useState(false)
+  const classNames = {
+    trigger: clsx(s.SelectTrigger, errorMessage && s.error),
+  }
 
   return (
     <Label>
@@ -56,42 +59,34 @@ export const SuperSelect = ({
           {label}
         </Typography>
       )}
-      <Select
-        required={required}
-        disabled={disabled}
-        onValueChange={onValueChange}
-        open={open}
-        onOpenChange={() => setOpen(!open)}
-      >
-        <SelectTrigger className={s.SelectTrigger} style={{ width: width, height: height }}>
-          <SelectValue className={s.SelectValue} placeholder={placeholder} />
-          <SelectIcon className={s.SelectIcon}>
-            {!open && <ChevronDownIcon />}
-            {open && <ChevronUpIcon />}
+      <Select required={required} disabled={disabled} onValueChange={onValueChange}>
+        <SelectTrigger className={classNames.trigger} style={{ width: width, height: height }}>
+          <SelectValue className={s.value} placeholder={placeholder} />
+          <SelectIcon className={s.icon}>
+            <ChevronDownIcon />
           </SelectIcon>
         </SelectTrigger>
         <SelectPortal>
-          <SelectContent className={s.SelectContent} position={'popper'}>
-            <SelectScrollUpButton className={s.SelectScrollButton}>
+          <SelectContent className={s.content} position={'popper'}>
+            <SelectScrollUpButton className={s.scrollButton}>
               <ChevronUpIcon />
             </SelectScrollUpButton>
             <SelectViewport>
-              {options &&
-                options.map((el, index) => (
-                  <>
-                    <SelectItem value={el} className={s.SelectItem} key={index}>
-                      <SelectItemText>
-                        <Typography variant={'body1'}>{el}</Typography>
-                      </SelectItemText>
-                      <SelectItemIndicator className={s.SelectItemIndicator}>
-                        <CheckIcon />
-                      </SelectItemIndicator>
-                    </SelectItem>
-                    {showOptionSeparator && <SelectSeparator className={s.SelectSeparator} />}
-                  </>
-                ))}
+              {options.map((el, index) => (
+                <>
+                  <SelectItem value={el} className={s.option} key={index}>
+                    <SelectItemText>
+                      <Typography variant={'body1'}>{el}</Typography>
+                    </SelectItemText>
+                    <SelectItemIndicator className={s.optionIndicator}>
+                      <CheckIcon />
+                    </SelectItemIndicator>
+                  </SelectItem>
+                  {showOptionSeparator && <SelectSeparator className={s.separator} />}
+                </>
+              ))}
             </SelectViewport>
-            <SelectScrollDownButton className={s.SelectScrollButton}>
+            <SelectScrollDownButton className={s.scrollButton}>
               <ChevronDownIcon />
             </SelectScrollDownButton>
           </SelectContent>

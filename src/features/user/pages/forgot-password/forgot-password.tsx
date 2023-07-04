@@ -2,6 +2,11 @@ import s from './forgot-password.module.css'
 
 import { useForgotPasswordMutation } from '@/features/user/service/user.api.ts'
 
+type FormValues = {
+  login: string
+  password: string
+}
+
 export const ForgotPassword = () => {
   const [forgotPassword] = useForgotPasswordMutation()
 

@@ -19,6 +19,7 @@ export type TextFieldProps = {
   iconEnd?: ReactNode
   onEnter?: (e: KeyboardEvent<HTMLInputElement>) => void
   onClearValue?: () => void
+  className?: string
 } & ComponentProps<'input'>
 
 export const TextField: FC<TextFieldProps> = ({
@@ -32,6 +33,7 @@ export const TextField: FC<TextFieldProps> = ({
   onEnter,
   onKeyDown,
   onClearValue,
+  className,
   ...rest
 }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -47,7 +49,7 @@ export const TextField: FC<TextFieldProps> = ({
     onKeyDown?.(e)
   }
   const classNames = {
-    root: clsx(s.root, rest.className),
+    root: clsx(s.root, className),
     input: clsx(s.input, showError && s.error),
     iconButton: clsx(s.iconButton, disabled && s.disabled),
     iconStart: clsx(s.iconStart),

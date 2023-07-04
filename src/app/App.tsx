@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom'
 
 import s from '@/app/app.module.scss'
 import { Header } from '@/components/ui/header'
-import { ForgotPassword } from '@/features/user/components/forgot-password/forgot-password.tsx'
+import { ForgotPassword } from '@/features/user/pages/forgot-password/forgot-password.tsx'
 
 export function App() {
   return (

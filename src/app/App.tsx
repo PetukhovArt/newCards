@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 
-import s from '@/app/app.module.scss'
+import s from './app.module.scss'
+
 import { Header } from '@/components/ui/header'
 import { CheckEmailPage } from '@/features/user/pages/check-email-page/check-email-page.tsx'
 

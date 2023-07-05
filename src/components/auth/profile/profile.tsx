@@ -1,19 +1,22 @@
-import { ChangeEvent, useState } from 'react'
+import { useState } from 'react'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
 import s from './profile.module.scss'
 
 import EditIcon from '@/assets/icons/edit-icon.tsx'
 import LogoutIcon from '@/assets/icons/logout-icon.tsx'
+import { profileSchema } from '@/common/schemas'
 import { Avatar } from '@/components/auth/profile/avatar'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { TextField } from '@/components/ui/text-field'
+import { ControlledTextField } from '@/components/ui/controlled'
 import { Typography } from '@/components/ui/typography'
 
-export type UpdateProfileType = {
-  name?: string
-  avatar?: string
-}
+type UpdateUserNameType = z.infer<typeof profileSchema>
+export type UpdateProfileType = UpdateUserNameType & { avatar?: string }
 
 type ProfilePropsType = {
   name: string
@@ -26,20 +29,18 @@ type ProfilePropsType = {
 export const Profile = (props: ProfilePropsType) => {
   const { name, email, avatar, logoutHandler, changeProfileHandler } = props
 
-  const [editMode, setEditMode] = useState(false)
-  const [newName, setNewName] = useState('')
+  const { control, handleSubmit } = useForm<UpdateUserNameType>({
+    defaultValues: { name },
+    resolver: zodResolver(profileSchema),
+  })
 
-  const changeNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewName(e.currentTarget.value)
-  }
-  const editModeOnHandler = () => {
-    setNewName(name)
-    setEditMode(true)
-  }
-  const editModeOffHandler = () => {
-    changeProfileHandler({ name: newName })
+  const [editMode, setEditMode] = useState(false)
+  const editModeOnHandler = () => setEditMode(true)
+
+  const onSubmit = handleSubmit(data => {
+    changeProfileHandler({ name: data.name })
     setEditMode(false)
-  }
+  })
 
   return (
     <Card className={s.card}>
@@ -51,32 +52,31 @@ export const Profile = (props: ProfilePropsType) => {
         avatarContent={!editMode && <EditIcon />}
       />
       {editMode ? (
-        <TextField
-          value={newName}
-          onChange={changeNameHandler}
-          label={'Nickname'}
-          className={s.textField}
-        />
+        <form onSubmit={onSubmit}>
+          <ControlledTextField
+            control={control}
+            name={'name'}
+            label={'Nickname'}
+            className={s.textField}
+          />
+          <Button type={'submit'} className={s.saveBtn} fullWidth>
+            Save Changes
+          </Button>
+        </form>
       ) : (
-        <div className={s.name}>
-          <Typography variant={'h1'}>{name}</Typography>
-          <EditIcon onClick={editModeOnHandler} className={s.editIcon} />
-        </div>
-      )}
-      {!editMode && (
-        <Typography variant={'body2'} className={s.email}>
-          {email}
-        </Typography>
-      )}
-      {editMode ? (
-        <Button onClick={editModeOffHandler} className={s.saveBtn} fullWidth>
-          Save Changes
-        </Button>
-      ) : (
-        <Button variant={'secondary'} onClick={logoutHandler} className={s.logoutBtn}>
-          <LogoutIcon />
-          Logout
-        </Button>
+        <>
+          <div className={s.name}>
+            <Typography variant={'h1'}>{name}</Typography>
+            <EditIcon onClick={editModeOnHandler} className={s.editIcon} />
+          </div>
+          <Typography variant={'body2'} className={s.email}>
+            {email}
+          </Typography>
+          <Button variant={'secondary'} onClick={logoutHandler} className={s.logoutBtn}>
+            <LogoutIcon />
+            Logout
+          </Button>
+        </>
       )}
     </Card>
   )

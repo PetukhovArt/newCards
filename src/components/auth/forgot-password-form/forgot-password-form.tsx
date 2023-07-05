@@ -4,6 +4,7 @@ import { z } from 'zod'
 
 import s from './forgot-password-form.module.scss'
 
+import { forgotPasswordSchema } from '@/common/schemas'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ControlledTextField } from '@/components/ui/controlled/controlled-text-field.tsx'
@@ -16,15 +17,12 @@ type ForgotPasswordFormType = {
   onSubmitCallback: (data: ForgotFormValues) => void
   linkPath: string
 }
-const schema = z.object({
-  email: z.string().trim().email('Invalid email address').nonempty('Enter email'),
-})
 
-type Form = z.infer<typeof schema>
+type Form = z.infer<typeof forgotPasswordSchema>
 
 export const ForgotPasswordForm = ({ onSubmitCallback, linkPath }: ForgotPasswordFormType) => {
   const { handleSubmit, control } = useForm<Form>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(forgotPasswordSchema),
     mode: 'onSubmit',
   })
 

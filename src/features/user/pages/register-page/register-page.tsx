@@ -1,7 +1,7 @@
-import { RegisterForm } from '@/components/auth/register-form'
+import { RegisterForm, RegisterFormType } from '@/components/auth/register-form'
 
 export const RegisterPage = () => {
-  const someCallback = () => alert('go to login')
+  const registerHandler = (data: RegisterFormType) => console.log(data)
 
-  return <RegisterForm linkPath={'/login'} onSubmitCallback={someCallback} />
+  return <RegisterForm linkPath={'/login'} onSubmitHandler={registerHandler} />
 }

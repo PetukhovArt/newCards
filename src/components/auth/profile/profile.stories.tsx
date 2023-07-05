@@ -8,11 +8,9 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     logoutHandler: {
-      description: 'logout user',
       action: 'logout',
     },
     changeProfileHandler: {
-      description: 'change user profile',
       action: 'change',
     },
   },

@@ -6,7 +6,11 @@ const meta = {
   title: 'Auth/RegisterForm',
   component: RegisterForm,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+    onSubmitHandler: {
+      action: 'submit',
+    },
+  },
 } satisfies Meta<typeof RegisterForm>
 
 export default meta

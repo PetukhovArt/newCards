@@ -3,11 +3,12 @@
 .container {
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .label {
   @include typography($fs: var(--font-size-s));
+
+  cursor: pointer;
 
   display: inline-flex;
   gap: 8px;

@@ -1,0 +1,7 @@
+@import '@/styles/mixins';
+
+.container {
+  @include flex-block;
+
+  margin-top: 36px;
+}

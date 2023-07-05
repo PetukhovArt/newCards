@@ -1,0 +1,23 @@
+@import '@/styles/mixins';
+
+.card {
+  @include flex-block;
+
+  max-width: 420px;
+  padding: 37px 36px 44px;
+
+  .title {
+    margin-bottom: 27px;
+    text-align: center;
+  }
+
+  .icon {
+    margin-bottom: 19px;
+  }
+
+  .description {
+    margin-bottom: 65px;
+    text-align: center;
+    opacity: 0.5;
+  }
+}

@@ -1,11 +1,5 @@
 @import '@/styles/mixins';
 
-//mixin typography defaults(
-//$fs: var(--font-size-s),
-//$lh: var(--line-height-m),
-//$fw: var(--font-weight-regular),
-//)
-
 //base style======================================================================
 .body1 {
   @include typography;
@@ -99,4 +93,7 @@
 
 .error {
   color: var(--color-danger-300);
+}
+.form {
+  color: var(--color-light-900);
 }

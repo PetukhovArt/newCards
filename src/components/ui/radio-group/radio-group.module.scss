@@ -1,0 +1,13 @@
+button {
+  all: unset;
+}
+
+.RadioGroupRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.disabled {
+  opacity: 0.4;
+}

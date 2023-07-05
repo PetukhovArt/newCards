@@ -6,12 +6,7 @@ const meta = {
   title: 'Auth/RegisterForm',
   component: RegisterForm,
   tags: ['autodocs'],
-  argTypes: {
-    linkPath: {
-      options: ['/login'],
-      control: { type: 'radio' },
-    },
-  },
+  argTypes: {},
 } satisfies Meta<typeof RegisterForm>
 
 export default meta

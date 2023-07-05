@@ -10,14 +10,21 @@ import { Card } from '@/components/ui/card'
 import { TextField } from '@/components/ui/text-field'
 import { Typography } from '@/components/ui/typography'
 
+export type UpdateProfileType = {
+  name?: string
+  avatar?: string
+}
+
 type ProfilePropsType = {
   name: string
   email: string
   avatar: string
+  logoutHandler: () => void
+  changeProfileHandler: (profile: UpdateProfileType) => void
 }
 
 export const Profile = (props: ProfilePropsType) => {
-  const { name, email, avatar } = props
+  const { name, email, avatar, logoutHandler, changeProfileHandler } = props
 
   const [editMode, setEditMode] = useState(false)
   const [newName, setNewName] = useState('')
@@ -30,7 +37,7 @@ export const Profile = (props: ProfilePropsType) => {
     setEditMode(true)
   }
   const editModeOffHandler = () => {
-    console.log(newName)
+    changeProfileHandler({ name: newName })
     setEditMode(false)
   }
 
@@ -66,7 +73,7 @@ export const Profile = (props: ProfilePropsType) => {
           Save Changes
         </Button>
       ) : (
-        <Button variant={'secondary'} className={s.logoutBtn}>
+        <Button variant={'secondary'} onClick={logoutHandler} className={s.logoutBtn}>
           <LogoutIcon />
           Logout
         </Button>

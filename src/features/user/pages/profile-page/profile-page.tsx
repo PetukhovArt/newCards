@@ -1,4 +1,4 @@
-import { Profile } from '@/components/auth/profile'
+import { Profile, UpdateProfileType } from '@/components/auth/profile'
 
 export const ProfilePage = () => {
   const name = 'Some Name'
@@ -6,5 +6,16 @@ export const ProfilePage = () => {
   const avatar =
     'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80'
 
-  return <Profile name={name} email={email} avatar={avatar} />
+  const logoutHandler = () => console.log('logout')
+  const changeProfileHandler = (profile: UpdateProfileType) => console.log(profile)
+
+  return (
+    <Profile
+      name={name}
+      email={email}
+      avatar={avatar}
+      logoutHandler={logoutHandler}
+      changeProfileHandler={changeProfileHandler}
+    />
+  )
 }

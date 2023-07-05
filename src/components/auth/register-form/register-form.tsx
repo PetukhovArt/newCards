@@ -19,7 +19,7 @@ export const RegisterForm = (props: RegisterFormPropsType) => {
       <TextField label={'Email'} className={s.email} />
       <TextField type={'password'} label={'Password'} className={s.password} />
       <TextField type={'password'} label={'Confirm password'} className={s.confirmPassword} />
-      <Button fullWidth className={s.registerBtn}>
+      <Button fullWidth className={s.registerBtn} onClick={onSubmitCallback}>
         Sign Up
       </Button>
       <Typography variant={'body2'} className={s.subtitle}>

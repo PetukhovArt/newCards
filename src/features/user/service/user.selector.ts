@@ -1,4 +1,5 @@
-// import { RootState } from '@/app/store.ts'
+import { RootState } from '@/app/store.ts'
 
-// export const isLoading_Selector = (state: RootState) => state.app.isLoading
-// export const error_Selector = (state: RootState) => state.app.error
+//@ts-ignore
+export const userEmail_Selector = (state: RootState) => state.userApi.user.email
+//TODO selector

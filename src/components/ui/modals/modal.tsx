@@ -14,7 +14,7 @@ import { clsx } from 'clsx'
 
 import s from './modal.module.scss'
 
-import CloseIcon from '@/assets/icons/CloseIcon.tsx'
+import CloseIcon from '@/assets/icons/close-icon.tsx'
 import { Typography } from '@/components/ui/typography'
 
 export type ModalSize = 'sm' | 'md' | 'lg'

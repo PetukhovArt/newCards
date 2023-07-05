@@ -2,8 +2,8 @@ import { ChangeEvent, useState } from 'react'
 
 import s from './profile.module.scss'
 
-import EditIcon from '@/assets/icons/EditIcon.tsx'
-import LogOutIcon from '@/assets/icons/LogOutIcon.tsx'
+import EditIcon from '@/assets/icons/edit-icon.tsx'
+import LogoutIcon from '@/assets/icons/logout-icon.tsx'
 import { Avatar } from '@/components/auth/profile/avatar'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -67,7 +67,7 @@ export const Profile = (props: ProfilePropsType) => {
         </Button>
       ) : (
         <Button variant={'secondary'} className={s.logoutBtn}>
-          <LogOutIcon />
+          <LogoutIcon />
           Logout
         </Button>
       )}

@@ -11,6 +11,6 @@ const LogOut = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 )
-const LogOutIcon = memo(LogOut)
+const LogoutIcon = memo(LogOut)
 
-export default LogOutIcon
+export default LogoutIcon

@@ -14,6 +14,6 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 )
-const Close24 = memo(SvgComponent)
+const Close24Icon = memo(SvgComponent)
 
-export default Close24
+export default Close24Icon

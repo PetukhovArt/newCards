@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { Button } from './'
 
-import LogOutIcon from '@/assets/icons/LogOutIcon.tsx'
+import LogoutIcon from '@/assets/icons/logout-icon.tsx'
 
 const meta = {
   title: 'Components/Button',
@@ -32,7 +32,7 @@ export const WithIcon: Story = {
     return (
       <>
         <Button {...args}>
-          <LogOutIcon />
+          <LogoutIcon />
           {'WithIcon'}
         </Button>
       </>

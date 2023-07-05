@@ -29,7 +29,6 @@ export const ForgotPasswordForm = ({ onSubmitCallback, linkPath }: ForgotPasswor
   })
 
   const onSubmit = handleSubmit(data => {
-    console.log(data)
     onSubmitCallback(data)
   })
 

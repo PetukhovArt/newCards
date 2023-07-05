@@ -5,10 +5,10 @@ import clsx from 'clsx'
 
 import s from './text-field.module.scss'
 
-import CloseIcon from '@/assets/icons/CloseIcon.tsx'
-import EyeIcon from '@/assets/icons/EyeIcon.tsx'
-import EyeIconOff from '@/assets/icons/EyeIconOff.tsx'
-import SearchIcon from '@/assets/icons/SearchIcon.tsx'
+import CloseIcon from '@/assets/icons/close-icon.tsx'
+import EyeIcon from '@/assets/icons/eye-icon.tsx'
+import EyeOffIcon from '@/assets/icons/eye-off-icon.tsx'
+import SearchIcon from '@/assets/icons/search-icon.tsx'
 import { Typography } from '@/components/ui/typography'
 
 export type TextFieldProps = {
@@ -84,7 +84,7 @@ export const TextField: FC<TextFieldProps> = ({
 
           {type === 'password' && (
             <button className={classNames.iconButton} type="button" onClick={onClickShowValue}>
-              {!showPassword ? <EyeIcon /> : <EyeIconOff />}
+              {!showPassword ? <EyeIcon /> : <EyeOffIcon />}
             </button>
           )}
 

@@ -6,7 +6,7 @@ import s from './forgot-password-form.module.scss'
 
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
-import { ControlledTextField } from '@/components/ui/text-field/controlled-text-field.tsx'
+import { ControlledTextField } from '@/components/ui/controlled/controlled-text-field.tsx'
 import { Typography } from '@/components/ui/typography'
 
 export type ForgotFormValues = {

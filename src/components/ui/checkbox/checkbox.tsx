@@ -10,8 +10,8 @@ import checkBoxDefaultSelected from '@/assets/icons/checkBoxDefaultSelected.svg'
 import checkedDisabled from '@/assets/icons/checkedDisabled.svg'
 
 export type CheckboxPropsType = {
-  checked: boolean
-  onChange: (checked: boolean) => void
+  checked: boolean | string
+  onChange?: (checked: boolean) => void
   disabled?: boolean
   required?: boolean
   label?: string
@@ -38,8 +38,8 @@ export const Checkbox: FC<CheckboxPropsType> = ({
       <div className={classNames.buttonWrapper}>
         <CheckboxRadix.Root
           className={classNames.root}
-          checked={checked}
-          onCheckedChange={() => onChange(!checked)}
+          checked={Boolean(checked)}
+          onCheckedChange={onChange}
           disabled={disabled}
           required={required}
         >

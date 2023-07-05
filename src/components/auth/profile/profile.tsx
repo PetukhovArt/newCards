@@ -42,6 +42,8 @@ export const Profile = (props: ProfilePropsType) => {
     setEditMode(false)
   })
 
+  const changeAvatarHandler = () => changeProfileHandler({ avatar })
+
   return (
     <Card className={s.card}>
       <Typography variant={'large'}>Personal Information</Typography>
@@ -49,7 +51,7 @@ export const Profile = (props: ProfilePropsType) => {
         className={s.avatar}
         name={name}
         avatar={avatar}
-        avatarContent={!editMode && <EditIcon />}
+        avatarContent={!editMode && <EditIcon onClick={changeAvatarHandler} />}
       />
       {editMode ? (
         <form onSubmit={onSubmit}>

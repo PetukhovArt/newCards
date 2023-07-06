@@ -12,7 +12,7 @@ type UsePaginationParamType = {
   totalCount: number
   siblings?: number
   page: number
-  onChange: (pageNumber: number) => void
+  onChange?: (pageNumber: number) => void
 }
 
 type PaginationRange = (number | '...')[]
@@ -89,15 +89,15 @@ export const usePagination = ({
   const isLastPage = page === lastPage
 
   const handleNextPageClicked = useCallback(() => {
-    onChange(page + 1)
+    onChange?.(page + 1)
   }, [page, onChange])
 
   const handlePreviousPageClicked = useCallback(() => {
-    onChange(page - 1)
+    onChange?.(page - 1)
   }, [page, onChange])
 
   const handleMainPageClicked = (pageNumber: number) => {
-    return () => onChange(pageNumber)
+    return () => onChange?.(pageNumber)
   }
 
   return {

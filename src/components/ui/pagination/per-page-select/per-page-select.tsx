@@ -8,14 +8,19 @@ export type PerPageSelectPropsType = {
   onPerPageChange: (itemPerPage: number) => void
 }
 
-export const PerPageSelect = ({ perPageOptions, onPerPageChange }: PerPageSelectPropsType) => {
-  const changePerPageHandler = (value: string) => {
-    onPerPageChange(parseInt(value))
+export const PerPageSelect = ({
+  perPage,
+  perPageOptions,
+  onPerPageChange,
+}: PerPageSelectPropsType) => {
+  const changePerPageHandler = (value: number) => {
+    onPerPageChange(value)
   }
+
   return (
     <div className={s.selectBox}>
       Показать
-      <SuperSelect options={perPageOptions} onValueChange={changePerPageHandler} />
+      <SuperSelect value={perPage} options={perPageOptions} onValueChange={changePerPageHandler} />
       на странице
     </div>
   )

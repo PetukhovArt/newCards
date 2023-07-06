@@ -1,7 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom'
 import { useState } from 'react'
 
-import { Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 
 import s from './app.module.scss'
 
@@ -9,7 +8,7 @@ import { Header } from '@/components/ui/header'
 import { SuperSelect } from '@/components/ui/select'
 
 export function App() {
-  const [value, setValue] = useState(1)
+  const [value, setValue] = useState<number>(1)
 
   return (
     <div className="App">
@@ -24,13 +23,14 @@ export function App() {
         <NavLink to={'/register'}>register</NavLink>
         <NavLink to={'/forgot-password'}>forgot password</NavLink>
         <NavLink to={'/check-email'}>check email</NavLink>
-      <SuperSelect
-        value={value}
-        options={[1, 2, 3, 4, 5]}
-        onValueChange={(value: number) => setValue(value)}
-      />
-      <div className={s.main}>
-        <Outlet />
+        <SuperSelect
+          value={value}
+          options={[1, 2, 3, 4, 5]}
+          onValueChange={(value: number) => setValue(value)}
+        />
+        <div className={s.main}>
+          <Outlet />
+        </div>
       </div>
     </div>
   )

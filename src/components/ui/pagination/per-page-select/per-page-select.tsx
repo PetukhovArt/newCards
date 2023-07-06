@@ -13,14 +13,10 @@ export const PerPageSelect = ({
   perPageOptions,
   onPerPageChange,
 }: PerPageSelectPropsType) => {
-  const changePerPageHandler = (value: number) => {
-    onPerPageChange(value)
-  }
-
   return (
     <div className={s.selectBox}>
       Показать
-      <SuperSelect value={perPage} options={perPageOptions} onValueChange={changePerPageHandler} />
+      <SuperSelect value={perPage} options={perPageOptions} onValueChange={onPerPageChange} />
       на странице
     </div>
   )

@@ -77,7 +77,7 @@ export const SuperSelect = <T extends string | number>({
         required={required}
         disabled={disabled}
         onValueChange={onChangeHandler}
-        value={value.toString()}
+        value={value?.toString()}
       >
         <SelectTrigger className={classNames.trigger} style={{ width: width, height: height }}>
           <SelectValue className={s.value} placeholder={placeholder} />
@@ -93,9 +93,9 @@ export const SuperSelect = <T extends string | number>({
             <SelectViewport>
               {options.map((el, index) => (
                 <>
-                  <SelectItem value={el.toString()} className={s.option} key={index}>
+                  <SelectItem value={el?.toString()} className={s.option} key={index}>
                     <SelectItemText>
-                      <Typography variant={'body1'}>{el.toString()}</Typography>
+                      <Typography variant={'body1'}>{el?.toString()}</Typography>
                     </SelectItemText>
                     <SelectItemIndicator className={s.optionIndicator}>
                       <CheckIcon />

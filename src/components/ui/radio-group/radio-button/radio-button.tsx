@@ -1,4 +1,4 @@
-import * as RadioGroup from '@radix-ui/react-radio-group'
+import { Item, Indicator } from '@radix-ui/react-radio-group'
 
 import s from './radio-button.module.scss'
 
@@ -13,16 +13,11 @@ export const RadioButton = (props: RadioButtonProps) => {
   const { value, label, disabled = false } = props
 
   return (
-    <div className={s.radioButtonContainer}>
+    <div className={`${s.radioButtonContainer} ${disabled && s.disabled}`}>
       <div className={s.radioButtonBackGround}>
-        <RadioGroup.Item
-          disabled={disabled}
-          className={`${s.RadioGroupItem} ${disabled && s.disabled}`}
-          value={value}
-          id={value}
-        >
-          <RadioGroup.Indicator className={s.RadioGroupIndicator} />
-        </RadioGroup.Item>
+        <Item disabled={disabled} className={s.RadioGroupItem} value={value} id={value}>
+          <Indicator className={s.RadioGroupIndicator} />
+        </Item>
       </div>
       {label && (
         <Typography as={'label'} className={s.label} variant={'body2'} htmlFor={value}>

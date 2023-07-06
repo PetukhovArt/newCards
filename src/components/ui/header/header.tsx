@@ -15,9 +15,15 @@ export const Header = (props: HeaderPropsType) => {
 
   return (
     <div className={s.header}>
-      <img src={logo} alt="logo" />
+      <div className={s.container}>
+        <img src={logo} alt="logo" />
 
-      {isLoggedIn ? <ProfileInfo name={name} avatar={avatar} /> : <Button as={'a'}>Sign in</Button>}
+        {isLoggedIn ? (
+          <ProfileInfo name={name} avatar={avatar} />
+        ) : (
+          <Button as={'a'}>Sign in</Button>
+        )}
+      </div>
     </div>
   )
 }

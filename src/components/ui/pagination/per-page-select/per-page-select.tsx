@@ -2,21 +2,20 @@ import s from './per-page-select.module.scss'
 
 import { SuperSelect } from '@/components/ui/select'
 
-type PerPageSelectProps = {
+export type PerPageSelectPropsType = {
   perPage: number
-  perPageOptions: string[]
-  onPerPageChange: (value: string) => void
+  perPageOptions: number[]
+  onPerPageChange: (itemPerPage: number) => void
 }
 
-export const PerPageSelect = ({ perPage, perPageOptions, onPerPageChange }: PerPageSelectProps) => {
+export const PerPageSelect = ({ perPageOptions, onPerPageChange }: PerPageSelectPropsType) => {
+  const changePerPageHandler = (value: string) => {
+    onPerPageChange(parseInt(value))
+  }
   return (
     <div className={s.selectBox}>
       Показать
-      <SuperSelect
-        value={perPage} //TODO:  all types pasting in props must be same type
-        options={perPageOptions}
-        onValueChange={onPerPageChange}
-      />
+      <SuperSelect options={perPageOptions} onValueChange={changePerPageHandler} />
       на странице
     </div>
   )

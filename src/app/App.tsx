@@ -1,3 +1,4 @@
+import { NavLink, Outlet } from 'react-router-dom'
 import { useState } from 'react'
 
 import { Outlet } from 'react-router-dom'
@@ -12,19 +13,17 @@ export function App() {
 
   return (
     <div className="App">
-      {/*<ToastContainer*/}
-      {/*  position="top-center"*/}
-      {/*  autoClose={4000}*/}
-      {/*  hideProgressBar={false}*/}
-      {/*  newestOnTop*/}
-      {/*  closeOnClick*/}
-      {/*  rtl={false}*/}
-      {/*  pauseOnFocusLoss*/}
-      {/*  draggable*/}
-      {/*  pauseOnHover*/}
-      {/*  theme="light"*/}
-      {/*/>*/}
       <Header isLoggedIn={false} name={'ORK'} avatar={''} />
+      <div className={s.container}>
+        <div className={s.main}>
+          <Outlet />
+        </div>
+      </div>
+      <div className={s.navigation}>
+        <NavLink to={'/profile'}>profile</NavLink>
+        <NavLink to={'/register'}>register</NavLink>
+        <NavLink to={'/forgot-password'}>forgot password</NavLink>
+        <NavLink to={'/check-email'}>check email</NavLink>
       <SuperSelect
         value={value}
         options={[1, 2, 3, 4, 5]}

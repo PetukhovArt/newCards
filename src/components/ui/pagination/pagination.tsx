@@ -5,17 +5,26 @@ import { MainPaginationButtons } from '@/components/ui/pagination/main-paginatio
 import { NextButton, PrevButton } from '@/components/ui/pagination/navigation-buttons'
 import { PerPageSelect } from '@/components/ui/pagination/per-page-select'
 
-type PaginationConditionals = {
-  perPage?: number | null
-  perPageOptions?: string[]
-  onPerPageChange?: (itemPerPage: string) => void
-}
+type PaginationConditionals =
+  | {
+      perPage?: null
+      perPageOptions?: never
+      onPerPageChange?: never
+    }
+  | {
+      perPage: number
+      perPageOptions: number[]
+      onPerPageChange?: (itemPerPage: number) => void
+    }
 
-export type PaginationPropsType = {
+export type PaginationProps = {
   totalCount: number
   page: number
   onChange: (page: number) => void
   siblings?: number
+  perPage?: number | null
+  perPageOptions?: number[]
+  onPerPageChange?: (itemPerPage: number) => void
 } & PaginationConditionals
 
 export const Pagination = ({
@@ -26,7 +35,7 @@ export const Pagination = ({
   perPageOptions,
   onPerPageChange,
   siblings,
-}: PaginationPropsType) => {
+}: PaginationProps) => {
   const {
     paginationRange,
     isLastPage,

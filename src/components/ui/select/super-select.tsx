@@ -23,12 +23,18 @@ import s from './select.module.scss'
 
 import { Typography } from '@/components/ui/typography'
 
-type SuperSelectProps = {
+type ConditionalProps<T> = {
+  onValueChange: (value: T) => void
+  options: Array<T>
+  value: T
+}
+
+interface CommonProps {
+  value: string | number
+  className?: string
   errorMessage?: string
   width?: CSSProperties['width']
   height?: CSSProperties['height']
-  options: string[]
-  onValueChange: (value: string) => void
   label?: string
   showOptionSeparator?: boolean
   disabled?: boolean
@@ -36,20 +42,28 @@ type SuperSelectProps = {
   required?: boolean
 }
 
-export const SuperSelect = ({
+type SelectProps<T> = CommonProps & ConditionalProps<T>
+
+export const SuperSelect = <T extends string | number>({
+  options,
+  value,
+  onValueChange,
+  className,
   errorMessage,
   required = false,
   placeholder = 'Select-box',
-  options = ['First', 'Second', 'Third'],
-  onValueChange,
   width = '210px',
   height = '36px',
   label,
   disabled,
   showOptionSeparator,
-}: SuperSelectProps) => {
+}: SelectProps<T>) => {
   const classNames = {
-    trigger: clsx(s.SelectTrigger, errorMessage && s.error),
+    trigger: clsx(s.SelectTrigger, errorMessage && s.error, className),
+  }
+
+  const onChangeHandler = (newValue: string) => {
+    onValueChange(newValue as T)
   }
 
   return (
@@ -59,7 +73,12 @@ export const SuperSelect = ({
           {label}
         </Typography>
       )}
-      <Select required={required} disabled={disabled} onValueChange={onValueChange}>
+      <Select
+        required={required}
+        disabled={disabled}
+        onValueChange={onChangeHandler}
+        value={value?.toString()}
+      >
         <SelectTrigger className={classNames.trigger} style={{ width: width, height: height }}>
           <SelectValue className={s.value} placeholder={placeholder} />
           <SelectIcon className={s.icon}>
@@ -74,9 +93,9 @@ export const SuperSelect = ({
             <SelectViewport>
               {options.map((el, index) => (
                 <>
-                  <SelectItem value={el} className={s.option} key={index}>
+                  <SelectItem value={el?.toString()} className={s.option} key={index}>
                     <SelectItemText>
-                      <Typography variant={'body1'}>{el}</Typography>
+                      <Typography variant={'body1'}>{el?.toString()}</Typography>
                     </SelectItemText>
                     <SelectItemIndicator className={s.optionIndicator}>
                       <CheckIcon />

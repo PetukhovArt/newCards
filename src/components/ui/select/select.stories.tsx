@@ -30,26 +30,32 @@ export default meta
 type Story = StoryObj<typeof SuperSelect>
 
 export const Simple: Story = {
-  args: {},
+  args: {
+    options: [1, 2, 3, 4, 5],
+  },
 }
 export const WithLabel: Story = {
   args: {
     label: 'label',
+    options: [1, 2, 3, 4, 5],
   },
 }
 export const WithItemSeparator: Story = {
   args: {
     showOptionSeparator: true,
+    options: [1, 2, 3, 4, 5],
   },
 }
 export const WithErrorMessage: Story = {
   args: {
     errorMessage: 'error message',
+    options: [1, 2, 3, 4, 5],
   },
 }
 
 export const Disabled: Story = {
   args: {
     disabled: true,
+    options: [1, 2, 3, 4, 5],
   },
 }

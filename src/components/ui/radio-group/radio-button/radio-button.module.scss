@@ -63,10 +63,6 @@ button {
         }
       }
     }
-
-    .disabled {
-      opacity: 0.4;
-    }
   }
 
   .label {
@@ -74,4 +70,9 @@ button {
     user-select: none;
     padding-left: 1px;
   }
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.4;
 }

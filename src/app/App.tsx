@@ -1,29 +1,36 @@
-import { Outlet } from 'react-router-dom'
+import { useState } from 'react'
+
+import { NavLink, Outlet } from 'react-router-dom'
 
 import s from './app.module.scss'
 
 import { Header } from '@/components/ui/header'
-import { CheckEmailPage } from '@/features/user/pages/check-email-page/check-email-page.tsx'
+import { SuperSelect } from '@/components/ui/select'
 
 export function App() {
+  const [value, setValue] = useState<number>(1)
+
   return (
     <div className="App">
-      {/*<ToastContainer*/}
-      {/*  position="top-center"*/}
-      {/*  autoClose={4000}*/}
-      {/*  hideProgressBar={false}*/}
-      {/*  newestOnTop*/}
-      {/*  closeOnClick*/}
-      {/*  rtl={false}*/}
-      {/*  pauseOnFocusLoss*/}
-      {/*  draggable*/}
-      {/*  pauseOnHover*/}
-      {/*  theme="light"*/}
-      {/*/>*/}
       <Header isLoggedIn={false} name={'ORK'} avatar={''} />
-      <CheckEmailPage />
-      <div className={s.main}>
-        <Outlet />
+      <div className={s.container}>
+        <div className={s.main}>
+          <Outlet />
+        </div>
+      </div>
+      <div className={s.navigation}>
+        <NavLink to={'/profile'}>profile</NavLink>
+        <NavLink to={'/register'}>register</NavLink>
+        <NavLink to={'/forgot-password'}>forgot password</NavLink>
+        <NavLink to={'/check-email'}>check email</NavLink>
+        <SuperSelect
+          value={value}
+          options={[1, 2, 3, 4, 5]}
+          onValueChange={(value: number) => setValue(value)}
+        />
+        <div className={s.main}>
+          <Outlet />
+        </div>
       </div>
     </div>
   )

@@ -1,11 +1,15 @@
+import { useState } from 'react'
+
 import { Outlet } from 'react-router-dom'
 
 import s from './app.module.scss'
 
 import { Header } from '@/components/ui/header'
-import { CheckEmailPage } from '@/features/user/pages/check-email-page/check-email-page.tsx'
+import { SuperSelect } from '@/components/ui/select'
 
 export function App() {
+  const [value, setValue] = useState(1)
+
   return (
     <div className="App">
       {/*<ToastContainer*/}
@@ -21,7 +25,11 @@ export function App() {
       {/*  theme="light"*/}
       {/*/>*/}
       <Header isLoggedIn={false} name={'ORK'} avatar={''} />
-      <CheckEmailPage />
+      <SuperSelect
+        value={value}
+        options={[1, 2, 3, 4, 5]}
+        onValueChange={(value: number) => setValue(value)}
+      />
       <div className={s.main}>
         <Outlet />
       </div>

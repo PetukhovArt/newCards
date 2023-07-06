@@ -8,11 +8,15 @@ type PerPageSelectProps = {
   onPerPageChange: (value: string) => void
 }
 
-export const PerPageSelect = ({ perPageOptions, onPerPageChange }: PerPageSelectProps) => {
+export const PerPageSelect = ({ perPage, perPageOptions, onPerPageChange }: PerPageSelectProps) => {
   return (
     <div className={s.selectBox}>
       Показать
-      <SuperSelect options={perPageOptions} onValueChange={onPerPageChange} />
+      <SuperSelect
+        value={perPage} //TODO:  all types pasting in props must be same type
+        options={perPageOptions}
+        onValueChange={onPerPageChange}
+      />
       на странице
     </div>
   )

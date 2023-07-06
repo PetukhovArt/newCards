@@ -4,12 +4,32 @@ import './styles/index.scss'
 
 import { createRoot } from 'react-dom/client'
 import { Provider } from 'react-redux'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import { App } from '@/app/App.tsx'
 import { store } from '@/app/store.ts'
+import { CheckEmailPage } from '@/features/user/pages/check-email-page/check-email-page.tsx'
+import { RegisterPage } from '@/features/user/pages/register-page'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    children: [
+      {
+        path: 'check-email',
+        element: <CheckEmailPage />,
+      },
+      {
+        path: 'register',
+        element: <RegisterPage />,
+      },
+    ],
+  },
+])
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
-    <App />
+    <RouterProvider router={router} />
   </Provider>
 )

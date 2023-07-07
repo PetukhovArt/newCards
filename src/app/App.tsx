@@ -28,9 +28,6 @@ export function App() {
           options={[1, 2, 3, 4, 5]}
           onValueChange={(value: number) => setValue(value)}
         />
-        <div className={s.main}>
-          <Outlet />
-        </div>
       </div>
     </div>
   )

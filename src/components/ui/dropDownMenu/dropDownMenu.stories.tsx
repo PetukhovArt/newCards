@@ -9,6 +9,7 @@ import { Dropdown, DropdownItemWithIcon } from './dropDownMenu.tsx'
 const meta = {
   title: 'Components/Dropdown',
   component: Dropdown,
+  tags: ['autodocs'],
 } satisfies Meta<typeof Dropdown>
 
 export default meta

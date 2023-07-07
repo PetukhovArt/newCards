@@ -1,7 +1,5 @@
 import { ComponentPropsWithoutRef, CSSProperties, FC, ReactNode } from 'react'
 
-import AccountBoxIcon from '@mui/icons-material/AccountBox'
-import LogoutIcon from '@mui/icons-material/Logout'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import clsx from 'clsx'
 
@@ -9,6 +7,9 @@ import Avatar from '../../../assets/images/Avatart.png'
 import { Typography } from '../typography/typography.tsx'
 
 import s from './dropDownMenu.module.scss'
+
+import LogoutIcon from '@/assets/icons/logout-icon.tsx'
+import { Person } from '@/assets/icons/person.tsx'
 
 export type DropdownProps = {
   /** Use TooltipItem components as children.*/
@@ -57,7 +58,7 @@ export const Dropdown = ({
           <DropdownMenu.Separator className={s.separator} />
           <DropdownMenu.Item>
             <Typography variant={'caption'} className={s.itemIcon}>
-              <AccountBoxIcon /> My profile
+              <Person /> My profile
             </Typography>
           </DropdownMenu.Item>
           <DropdownMenu.Separator className={s.separator} />

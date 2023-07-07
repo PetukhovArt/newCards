@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 import s from './page-button.module.scss'
 
 import { Typography } from '@/components/ui/typography'
@@ -13,13 +15,14 @@ type PageButtonPropsType = NavigationButtonPropsType & {
 }
 
 export const PageButton = ({ onClick, disabled, selected, page }: PageButtonPropsType) => {
+  const classNames = {
+    button: clsx(s.pageButton, selected && s.selected),
+    typography: clsx(selected && s.selectedPageNumber),
+  }
+
   return (
-    <button
-      onClick={onClick}
-      disabled={selected || disabled}
-      className={`${s.pageButton} ${selected && s.selected}`}
-    >
-      <Typography className={`${selected && s.selectedPageNumber}`} variant={'body2'}>
+    <button onClick={onClick} disabled={selected || disabled} className={classNames.button}>
+      <Typography className={classNames.typography} variant={'body2'}>
         {page}
       </Typography>
     </button>

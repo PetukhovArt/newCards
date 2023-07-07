@@ -1,21 +1,28 @@
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight'
-import BorderColorIcon from '@mui/icons-material/BorderColor'
-import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
-import { Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { ReadMore } from '../read-more/read-more.tsx'
 
 import { StarsRating, Table } from './table.tsx'
 
 import { Arrow } from '@/assets/icons/arrow.tsx'
+import { DeleteIcon } from '@/assets/icons/delete-icon.tsx'
 import EditIcon from '@/assets/icons/edit-icon.tsx'
+import { PlayIcon } from '@/assets/icons/play-icon.tsx'
 
-export default {
+const meta = {
   title: 'Components/Table',
   component: Table.Root,
-} as Meta<typeof Table.Root>
+  tags: ['autodocs'],
+} satisfies Meta<typeof Table.Root>
 
-export const Default = {
+export default meta
+type Story = StoryObj<typeof meta>
+// export default {
+//   title: 'Components/Table',
+//   component: Table.Root,
+// } as Meta<typeof Table.Root>
+
+export const Default: Story = {
   render: args => <Table.Root {...args} />,
 
   args: {
@@ -118,9 +125,13 @@ export const WithMapMethod = {
               <Table.Cell>{item.description}</Table.Cell>
               {StarsRating(item.grade)}
               <Table.Cell width={150} align={'center'}>
-                <ArrowCircleRightIcon />
-                <DeleteOutlineIcon />
-                <BorderColorIcon />
+                <div
+                  style={{ display: 'flex', gap: '6px', justifyContent: 'center', padding: '3px' }}
+                >
+                  <PlayIcon />
+                  <DeleteIcon />
+                  <EditIcon />
+                </div>
               </Table.Cell>
             </Table.Row>
           ))}

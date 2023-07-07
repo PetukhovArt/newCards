@@ -75,10 +75,8 @@ export const Modal: FC<ModalProps> = ({
             <div className={s.contentBox}>{children}</div>
 
             <div className={s.footerBlock}>
-              <DialogClose>{renderCancelButton && renderCancelButton()}</DialogClose>
-              <DialogClose className={s.actionButton}>
-                {renderActionButton && renderActionButton()}
-              </DialogClose>
+              <DialogClose>{renderCancelButton?.()}</DialogClose>
+              <DialogClose className={s.actionButton}>{renderActionButton?.()}</DialogClose>
             </div>
           </DialogContent>
         </DialogPortal>

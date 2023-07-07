@@ -1,13 +1,20 @@
-import { ReactNode } from 'react'
-
 import * as Tabs from '@radix-ui/react-tabs'
 
 import s from './tab-switcher.module.scss'
 
+import { TabTrigger } from '@/components/ui/tab-switcher/tab-trigger'
+
+type OptionType = {
+  value: string
+  label?: string
+  disabled?: boolean
+}
+
 type TabSwitcherPropsType = {
+  options: OptionType[]
   value?: string
   defaultValue?: string
-  children?: ReactNode
+  disabled?: boolean
   orientation?: 'horizontal' | 'vertical'
   activationMode?: 'automatic' | 'manual'
   loop?: boolean
@@ -16,9 +23,10 @@ type TabSwitcherPropsType = {
 
 export const TabSwitcher = (props: TabSwitcherPropsType) => {
   const {
+    options,
     value,
     defaultValue,
-    children,
+    disabled,
     orientation,
     activationMode = 'manual',
     loop = true,
@@ -35,7 +43,15 @@ export const TabSwitcher = (props: TabSwitcherPropsType) => {
       className={s.TabsRoot}
     >
       <Tabs.List loop={loop} className={s.TabsList}>
-        {children}
+        {options.map(option => (
+          <TabTrigger
+            key={option.value}
+            disabled={option.disabled || disabled}
+            value={option.value}
+          >
+            {option.label}
+          </TabTrigger>
+        ))}
       </Tabs.List>
     </Tabs.Root>
   )

@@ -1,13 +1,16 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 import { TabSwitcher } from '@/components/ui/tab-switcher/tab-switcher.tsx'
-import { TabTrigger } from '@/components/ui/tab-switcher/tab-trigger'
 
 const meta = {
   title: 'Components/TabSwitcher',
   component: TabSwitcher,
   tags: ['autodocs'],
-  argTypes: {},
+  argTypes: {
+    disabled: {
+      control: { type: 'boolean' },
+    },
+  },
 } satisfies Meta<typeof TabSwitcher>
 
 export default meta
@@ -15,30 +18,30 @@ type Story = StoryObj<typeof meta>
 
 export const DefaultTabSwitcher: Story = {
   args: {
-    children: (
-      <>
-        <TabTrigger value={'tab1'}>Switcher</TabTrigger>
-        <TabTrigger value={'tab2'}>Switcher</TabTrigger>
-        <TabTrigger value={'tab3'}>Switcher</TabTrigger>
-      </>
-    ),
+    options: [
+      { value: 'tab1', label: 'Switcher' },
+      { value: 'tab2', label: 'Switcher' },
+      { value: 'tab3', label: 'Switcher' },
+    ],
   },
 }
 
 export const DisabledTabSwitcher: Story = {
   args: {
-    children: (
-      <>
-        <TabTrigger disabled={true} value={'tab1'}>
-          Switcher
-        </TabTrigger>
-        <TabTrigger disabled={true} value={'tab2'}>
-          Switcher
-        </TabTrigger>
-        <TabTrigger disabled={true} value={'tab3'}>
-          Switcher
-        </TabTrigger>
-      </>
-    ),
+    options: [
+      { value: 'tab1', label: 'Switcher' },
+      { value: 'tab2', label: 'Switcher' },
+      { value: 'tab3', label: 'Switcher' },
+    ],
+    disabled: true,
+  },
+}
+export const DisabledTabs: Story = {
+  args: {
+    options: [
+      { value: 'tab1', label: 'Switcher', disabled: true },
+      { value: 'tab2', label: 'Switcher' },
+      { value: 'tab3', label: 'Switcher' },
+    ],
   },
 }

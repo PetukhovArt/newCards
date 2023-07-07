@@ -12,7 +12,7 @@ export function App() {
 
   return (
     <div className="App">
-      <Header isLoggedIn={false} name={'ORK'} avatar={''} />
+      <Header isLoggedIn={true} name={'ORK'} avatar={''} />
       <div className={s.container}>
         <div className={s.main}>
           <Outlet />

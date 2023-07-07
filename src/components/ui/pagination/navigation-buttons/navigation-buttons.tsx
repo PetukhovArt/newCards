@@ -2,7 +2,11 @@ import s from './navigation-buttons.module.scss'
 
 import KeyboardArrowLeft from '@/assets/icons/key-board-arrow-left.tsx'
 import KeyboardArrowRight from '@/assets/icons/key-board-arrow-right.tsx'
-import { NavigationButtonProps } from '@/components/ui/pagination/main-pagination-buttons/page-button'
+
+type NavigationButtonProps = {
+  disabled: boolean
+  onClick: () => void
+}
 
 export const PrevButton = ({ onClick, disabled }: NavigationButtonProps) => {
   return (

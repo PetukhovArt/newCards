@@ -12,13 +12,13 @@
 
   transition: all 0.3s ease;
 
+  &:focus {
+    box-shadow: 0 0 0 2px var(--color-info-900);
+  }
+
   &:hover:not(&:disabled) {
     background-color: var(--color-dark-500);
   }
-
-  /*  &:focus-visible {
-    outline: var(--color-info-300);
-  } */
 
   &:disabled {
     cursor: initial;

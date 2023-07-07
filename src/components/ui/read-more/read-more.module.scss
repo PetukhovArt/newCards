@@ -1,0 +1,17 @@
+.button {
+  all: unset;
+
+  cursor: pointer;
+
+  margin-left: 5px;
+
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  color: #2f68cc;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -13,6 +13,7 @@ import { Avatar } from '@/components/auth/profile/avatar'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ControlledTextField } from '@/components/ui/controlled'
+import { FileInput } from '@/components/ui/file-input'
 import { Typography } from '@/components/ui/typography'
 
 type UpdateUserNameType = z.infer<typeof profileSchema>
@@ -42,7 +43,7 @@ export const Profile = (props: ProfilePropsType) => {
     setEditMode(false)
   })
 
-  const changeAvatarHandler = () => changeProfileHandler({ avatar })
+  const changeAvatarHandler = (avatar: File) => changeProfileHandler({ avatar: avatar.name })
 
   return (
     <Card className={s.card}>
@@ -51,7 +52,9 @@ export const Profile = (props: ProfilePropsType) => {
         className={s.avatar}
         name={name}
         avatar={avatar}
-        avatarContent={!editMode && <EditIcon onClick={changeAvatarHandler} />}
+        avatarContent={
+          !editMode && <FileInput onChange={changeAvatarHandler} trigger={<EditIcon />} />
+        }
       />
       {editMode ? (
         <form onSubmit={onSubmit}>

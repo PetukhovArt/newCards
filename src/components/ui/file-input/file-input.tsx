@@ -23,7 +23,7 @@ export const FileInput = (props: FileInputPropsType) => {
   }
 
   const classNames = {
-    trigger: clsx(s.trigger, disabled && s.disabled),
+    trigger: clsx(s.trigger),
     input: clsx(s.input),
   }
 

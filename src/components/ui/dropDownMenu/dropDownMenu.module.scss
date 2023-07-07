@@ -1,0 +1,128 @@
+.trigger {
+  all: unset;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.menu_content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  color: var(--color-light-100);
+
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-100);
+  border-radius: 4px;
+
+  .menu_block {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .menu_user_block {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--color-light-100);
+  }
+
+  .menu_user_block_avatar {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .menu_user_block_name {
+    & * {
+      color: var(--color-light-100);
+    }
+  }
+
+  .menu_user_block_emale {
+    & * {
+      color: var(--color-dark-100);
+    }
+  }
+}
+
+.separator {
+  width: 12.0625rem;
+  height: 0.0625rem;
+  background-color: var(--color-dark-500);
+}
+
+//.button {
+//  cursor: pointer;
+//
+//  display: flex;
+//  align-items: center;
+//  justify-content: center;
+//
+//  width: 24px;
+//  height: 24px;
+//  padding: 0;
+//
+//  background-color: transparent;
+//  border: none;
+//  border-radius: 50%;
+//  outline: none;
+//}
+
+//.content {
+//  position: relative;
+//
+//  min-width: 134px;
+//  padding: 12px;
+//
+//  background-color: var(--color-dark-700);
+//  border: 1px solid var(--color-dark-500);
+//  border-radius: var(--border-radius-s);
+//}
+
+.itemsBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrowBox {
+  fill: var(--color-dark-700);
+  stroke: var(--color-dark-500);
+  stroke-width: 2px;
+}
+
+.arrow {
+  position: absolute;
+  top: -4px;
+  right: 25px;
+  transform: rotate(45deg);
+
+  width: 7px;
+  height: 7px;
+
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-500);
+  border-top: none;
+  border-left: none;
+}
+
+.itemIcon {
+  cursor: pointer;
+
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}

@@ -40,11 +40,13 @@ interface CommonProps {
   disabled?: boolean
   placeholder?: string
   required?: boolean
+  open?: boolean
 }
 
 type SelectProps<T> = CommonProps & ConditionalProps<T>
 
 export const SuperSelect = <T extends string | number>({
+  open,
   options,
   value,
   onValueChange,
@@ -74,6 +76,7 @@ export const SuperSelect = <T extends string | number>({
         </Typography>
       )}
       <Select
+        open={open}
         required={required}
         disabled={disabled}
         onValueChange={onChangeHandler}

@@ -4,9 +4,6 @@ import clsx from 'clsx'
 
 import s from './table.module.scss'
 
-import StarOutline from '@/assets/icons/star-outline.tsx'
-import Star from '@/assets/icons/star.tsx'
-
 export type RootProps = {
   nameTable: string
   mb?: string
@@ -90,16 +87,16 @@ export const Table = {
   Empty,
 }
 
-export function StarsRating(count: number) {
-  let stars = Array(5).fill(<StarOutline />)
-
-  for (let i = 0; i < count; i++) {
-    stars[i] = <Star />
-  }
-
-  return (
-    <Table.Cell style={{ display: 'flex' }} align={'center'}>
-      {stars}
-    </Table.Cell>
-  )
-}
+// export function StarsRating(count: number) {
+//   let stars = Array(5).fill(<StarOutline />)
+//
+//   for (let i = 0; i < count; i++) {
+//     stars[i] = <Star />
+//   }
+//
+//   return (
+//     <Table.Cell style={{ display: 'flex' }} align={'center'}>
+//       {stars}
+//     </Table.Cell>
+//   )
+// }

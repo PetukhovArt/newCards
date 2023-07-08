@@ -35,7 +35,7 @@ export const Default: Story = {
               <Typography variant={'subtitle2'}>Name</Typography>
             </Table.HeadCell>
             <Table.HeadCell align="center">
-              <Typography variant={'subtitle2'}>Decription</Typography>
+              <Typography variant={'subtitle2'}>Description</Typography>
             </Table.HeadCell>
             <Table.HeadCell />
           </Table.Row>
@@ -110,7 +110,7 @@ export const WithMapMethod = {
               <Typography variant={'subtitle2'}>Name</Typography>
             </Table.HeadCell>
             <Table.HeadCell align="center">
-              <Typography variant={'subtitle2'}>description</Typography>
+              <Typography variant={'subtitle2'}>Description</Typography>
             </Table.HeadCell>
             <Table.HeadCell>
               <Typography variant={'subtitle2'}>Grade</Typography>
@@ -165,11 +165,13 @@ export const WithReadMore = {
         <Table.Head>
           <Table.Row>
             <Table.HeadCell>
-              Name <Arrow />
+              <div>
+                <span>Name</span>
+                <Arrow />
+              </div>
             </Table.HeadCell>
-            <Table.HeadCell align="center">Decription</Table.HeadCell>
+            <Table.HeadCell align="center">Description</Table.HeadCell>
             <Table.HeadCell>Grade</Table.HeadCell>
-            {/*<Table.HeadCell>Ссылка</Table.HeadCell>*/}
           </Table.Row>
         </Table.Head>
         <Table.Body>

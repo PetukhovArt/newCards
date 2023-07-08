@@ -1,6 +1,5 @@
 {
   "name": "cards",
-  "homepage": "https://petukhovart.github.io/newCards",
   "private": true,
   "version": "0.0.0",
   "type": "module",

@@ -27,7 +27,7 @@ export const DefaultSlider: Story = {
 
     const changeHandler = (value: number[]) => setValue(value[0])
 
-    return <Slider value={[value]} multiple onChange={changeHandler} {...args} />
+    return <Slider {...args} value={[value]} multiple onChange={changeHandler} />
   },
 }
 export const DisabledSlider: Story = {
@@ -36,7 +36,7 @@ export const DisabledSlider: Story = {
 
     const changeHandler = (value: number[]) => setValue(value[0])
 
-    return <Slider value={[value]} disabled={true} multiple onChange={changeHandler} {...args} />
+    return <Slider {...args} value={[value]} disabled={true} multiple onChange={changeHandler} />
   },
 }
 
@@ -46,7 +46,7 @@ export const MultipleSlider: Story = {
 
     const changeHandler = (value: number[]) => setValue(value)
 
-    return <Slider value={value} multiple onChange={changeHandler} {...args} />
+    return <Slider {...args} value={value} multiple onChange={changeHandler} />
   },
 }
 

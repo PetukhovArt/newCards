@@ -98,6 +98,7 @@ const data = [
 ]
 
 export const WithMapMethod = {
+  // @ts-ignore
   render: args => <Table.Root {...args} />,
   args: {
     nameTable: 'Tables',
@@ -155,6 +156,7 @@ export const WithMapMethod = {
 }
 
 export const WithReadMore = {
+  // @ts-ignore
   render: args => <Table.Root {...args} />,
 
   args: {

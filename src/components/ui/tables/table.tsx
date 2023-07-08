@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import s from './table.module.scss'
 
 export type RootProps = {
-  nameTable: string
+  nameTable?: string
   mb?: string
   mt?: string
 } & ComponentProps<'table'>

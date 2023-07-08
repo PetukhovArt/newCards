@@ -20,11 +20,11 @@ export const Dropdown = ({
   children,
   trigger,
   loop = true,
-  align = 'end',
-  className,
-  style,
-  callBack,
-}: DropdownProps) => {
+}: // align = 'end',
+// className,
+// style,
+// callBack,
+DropdownProps) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>

@@ -15,6 +15,7 @@ button {
 
   font-weight: 400;
 
+  background-color: var(--color-dark-900);
   box-shadow: 0 0 0 1px var(--color-dark-300);
 }
 
@@ -66,6 +67,7 @@ button {
   height: 36px;
   padding: 0 12px;
 
+  background-color: var(--color-dark-900);
   border-radius: 2px;
 }
 
@@ -108,4 +110,6 @@ button {
   height: 25px;
 
   color: white;
+
+  background-color: var(--color-dark-900);
 }

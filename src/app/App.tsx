@@ -10,9 +10,12 @@ import { SuperSelect } from '@/components/ui/select'
 export function App() {
   const [value, setValue] = useState<number>(1)
 
+  const avatar =
+    'https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80'
+
   return (
     <div className="App">
-      <Header isLoggedIn={true} name={'ORK'} avatar={''} />
+      <Header isLoggedIn={true} name={'ORK'} avatar={avatar} email={'samiykrutoy@yandex.com'} />
       <div className={s.container}>
         <div className={s.main}>
           <Outlet />

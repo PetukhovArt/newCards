@@ -8,6 +8,7 @@ import s from './drop-down-item.module.scss'
 export type DropdownItemProps = {
   children?: ReactNode
   disabled?: boolean
+  isOption?: boolean
   /** Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item. */
   onSelect?: (event: Event) => void
   className?: string
@@ -17,12 +18,13 @@ export type DropdownItemProps = {
 export const DropdownItem: FC<DropdownItemProps> = ({
   children,
   disabled,
+  isOption = true,
   onSelect,
   className,
   style,
 }) => {
   const classNames = {
-    item: clsx(s.DropdownMenuItem, className),
+    item: clsx(s.DropdownMenuItem, className, !isOption && s.notOption),
   }
 
   return (

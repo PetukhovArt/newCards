@@ -9,6 +9,7 @@ export type DropdownProps = {
   children?: ReactNode
   /** The preferred content alignment against the trigger. */
   align?: 'start' | 'center' | 'end'
+  loop?: boolean
   trigger?: ReactNode
   className?: string
   style?: CSSProperties
@@ -18,6 +19,7 @@ export type DropdownProps = {
 export const Dropdown = ({
   children,
   trigger,
+  loop = true,
   align = 'end',
   className,
   style,
@@ -29,9 +31,9 @@ export const Dropdown = ({
         <button className="IconButton">{trigger}</button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className={s.DropdownMenuContent} sideOffset={5}>
-          {children}
+        <DropdownMenu.Content loop={loop} className={s.DropdownMenuContent} sideOffset={5}>
           <DropdownMenu.Arrow className={s.DropdownMenuArrow} />
+          {children}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>

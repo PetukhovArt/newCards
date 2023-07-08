@@ -4,7 +4,7 @@ import { Typography } from '../../typography'
 
 import s from './profile-info.module.scss'
 
-type ProfileInfoPropsType = {
+export type ProfileInfoPropsType = {
   name: string
   avatar: string
 }
@@ -18,6 +18,7 @@ export const ProfileInfo = (props: ProfileInfoPropsType) => {
       </Typography>
       <Avatar.Root className={s.AvatarRoot}>
         <Avatar.Image className={s.AvatarImage} src={avatar} alt={name} />
+        <Avatar.Fallback className={s.AvatarFallback}>{name[0]}</Avatar.Fallback>
       </Avatar.Root>
     </div>
   )

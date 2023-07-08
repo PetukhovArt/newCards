@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button'
 import { DropdownItem } from '@/components/ui/dropDownMenu/drop-down-item'
 import { DropDownSeparator } from '@/components/ui/dropDownMenu/drop-down-separator/drop-down-separator.tsx'
 import { ProfileInfo } from '@/components/ui/header/profile-info'
+import { ProfileMoreInfo } from '@/components/ui/header/profile-more-info'
 
 const meta = {
   title: 'Components/Dropdown',
@@ -26,10 +27,10 @@ type Story = StoryObj<typeof meta>
 export const WithProfile: Story = {
   render: args => {
     return (
-      <Dropdown {...args} trigger={<ProfileInfo name={'Anton'} avatar={''} />}>
+      <Dropdown {...args} trigger={<ProfileInfo name={'Some Name'} avatar={''} />}>
         <>
-          <DropdownItem>
-            <ProfileInfo name={'Anton'} avatar={''} />
+          <DropdownItem isOption={false}>
+            <ProfileMoreInfo name={'Some Name'} email={'j&johnson@gmail.com'} avatar={''} />
           </DropdownItem>
           <DropDownSeparator />
           <DropdownItem>
@@ -58,6 +59,31 @@ export const WithIcons: Story = {
           </DropdownItem>
           <DropDownSeparator />
           <DropdownItem>
+            <EditIcon />
+            <Typography>Edit</Typography>
+          </DropdownItem>
+          <DropDownSeparator />
+          <DropdownItem>
+            <DeleteIcon />
+            <Typography>Delete</Typography>
+          </DropdownItem>
+        </>
+      </Dropdown>
+    )
+  },
+}
+
+export const DisabledOptions: Story = {
+  render: args => {
+    return (
+      <Dropdown {...args} trigger={<Button variant={'secondary'}>Trigger</Button>}>
+        <>
+          <DropdownItem disabled={true}>
+            <LearnIcon />
+            <Typography>Learn</Typography>
+          </DropdownItem>
+          <DropDownSeparator />
+          <DropdownItem disabled={true}>
             <EditIcon />
             <Typography>Edit</Typography>
           </DropdownItem>

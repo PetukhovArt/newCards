@@ -1,14 +1,14 @@
 import { Typography } from '../typography'
 
-import s from './profile-info.module.scss'
+import s from './profile-avatar-bar.module.scss'
 
 import { Avatar } from '@/components/ui/avatar'
 
-export type ProfileInfoPropsType = {
+export type ProfileAvatarBarPropsType = {
   name: string
   avatar: string
 }
-export const ProfileInfo = (props: ProfileInfoPropsType) => {
+export const ProfileAvatarBar = (props: ProfileAvatarBarPropsType) => {
   const { name, avatar } = props
 
   return (

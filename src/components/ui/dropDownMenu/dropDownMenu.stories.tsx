@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { ProfileInfo } from '../profile-info'
-import { ProfileMoreInfo } from '../profile-more-info'
+import { ProfileAvatarBar } from '../profile-avatar-bar'
+import { ProfileAvatarCard } from '../profile-avatar-card'
 import { Typography } from '../typography'
 
 import { Dropdown } from './dropDownMenu.tsx'
@@ -27,10 +27,10 @@ type Story = StoryObj<typeof meta>
 export const WithProfile: Story = {
   render: args => {
     return (
-      <Dropdown {...args} trigger={<ProfileInfo name={'Some Name'} avatar={''} />}>
+      <Dropdown {...args} trigger={<ProfileAvatarBar name={'Some Name'} avatar={''} />}>
         <>
           <DropdownItem isOption={false}>
-            <ProfileMoreInfo name={'Some Name'} email={'j&johnson@gmail.com'} avatar={''} />
+            <ProfileAvatarCard name={'Some Name'} email={'j&johnson@gmail.com'} avatar={''} />
           </DropdownItem>
           <DropDownSeparator />
           <DropdownItem>

@@ -1,7 +1,5 @@
 import logo from '../../../assets/images/Logo.svg'
 import { Button } from '../button'
-import { ProfileInfo } from '../profile-info'
-import { ProfileMoreInfo } from '../profile-more-info'
 
 import s from './header.module.scss'
 
@@ -10,6 +8,8 @@ import PersonIcon from '@/assets/icons/person-icon.tsx'
 import { Dropdown } from '@/components/ui/dropDownMenu'
 import { DropdownItem } from '@/components/ui/dropDownMenu/drop-down-item'
 import { DropDownSeparator } from '@/components/ui/dropDownMenu/drop-down-separator'
+import { ProfileAvatarBar } from '@/components/ui/profile-avatar-bar'
+import { ProfileAvatarCard } from '@/components/ui/profile-avatar-card'
 import { Typography } from '@/components/ui/typography'
 
 type HeaderPropsType = {
@@ -28,9 +28,9 @@ export const Header = (props: HeaderPropsType) => {
         <img src={logo} alt="logo" />
 
         {isLoggedIn ? (
-          <Dropdown trigger={<ProfileInfo name={name} avatar={avatar} />}>
+          <Dropdown trigger={<ProfileAvatarBar name={name} avatar={avatar} />}>
             <DropdownItem isOption={false}>
-              <ProfileMoreInfo name={name} email={email} avatar={avatar} />
+              <ProfileAvatarCard name={name} email={email} avatar={avatar} />
             </DropdownItem>
             <DropDownSeparator />
             <DropdownItem>

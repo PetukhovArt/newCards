@@ -1,6 +1,5 @@
 import * as SliderRadix from '@radix-ui/react-slider'
-
-import { Typography } from '../typography'
+import clsx from 'clsx'
 
 import s from './slider.module.scss'
 
@@ -25,13 +24,22 @@ export const Slider = (props: SliderPropsType) => {
     step = 1,
     disabled = false,
     multiple = false,
+    onChange,
+    onChangeCommit,
   } = props
 
+  const classNames = {
+    sliderContainer: clsx(s.sliderContainer, disabled && s.disabled),
+    sliderRoot: s.SliderRoot,
+    sliderTrack: s.SliderTrack,
+    sliderRange: s.SliderRange,
+    sliderThumb: s.SliderThumb,
+    value: s.value,
+  }
+
   return (
-    <div className={`${s.range} ${disabled && s.disabled}`}>
-      <div className={s.value}>
-        <Typography variant={'body1'}>{value && value[0]}</Typography>
-      </div>
+    <div className={classNames.sliderContainer}>
+      <div className={classNames.value}>{value && value[0]}</div>
       <SliderRadix.Root
         value={value}
         defaultValue={defaultValue}
@@ -39,19 +47,17 @@ export const Slider = (props: SliderPropsType) => {
         max={max}
         step={step}
         disabled={disabled}
-        onValueChange={props.onChange}
-        onValueCommit={props.onChangeCommit}
-        className={s.SliderRoot}
+        onValueChange={onChange}
+        onValueCommit={onChangeCommit}
+        className={classNames.sliderRoot}
       >
-        <SliderRadix.Track className={s.SliderTrack}>
-          <SliderRadix.Range className={s.SliderRange} />
+        <SliderRadix.Track className={classNames.sliderTrack}>
+          <SliderRadix.Range className={classNames.sliderRange} />
         </SliderRadix.Track>
-        <SliderRadix.Thumb className={s.SliderThumb} />
-        {multiple && <SliderRadix.Thumb className={s.SliderThumb} />}
+        <SliderRadix.Thumb className={classNames.sliderThumb} />
+        {multiple && <SliderRadix.Thumb className={classNames.sliderThumb} />}
       </SliderRadix.Root>
-      <div className={s.value}>
-        <Typography variant={'body1'}>{(value && value[1]) || max}</Typography>
-      </div>
+      <div className={classNames.value}>{(value && value[1]) || max}</div>
     </div>
   )
 }

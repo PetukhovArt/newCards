@@ -4,12 +4,13 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { Avatar } from '../../ui/avatar'
+
 import s from './profile.module.scss'
 
 import EditIcon from '@/assets/icons/edit-icon.tsx'
 import LogoutIcon from '@/assets/icons/logout-icon.tsx'
 import { profileSchema } from '@/common/schemas'
-import { Avatar } from '@/components/auth/profile/avatar'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { ControlledTextField } from '@/components/ui/controlled'
@@ -51,7 +52,9 @@ export const Profile = (props: ProfilePropsType) => {
       <Avatar
         className={s.avatar}
         name={name}
-        avatar={avatar}
+        src={avatar}
+        width={96}
+        height={96}
         avatarContent={
           !editMode && <FileInput onChange={changeAvatarHandler} trigger={<EditIcon />} />
         }

@@ -1,15 +1,15 @@
 import logo from '../../../assets/images/Logo.svg'
 import { Button } from '../button'
+import { ProfileInfo } from '../profile-info'
+import { ProfileMoreInfo } from '../profile-more-info'
 
 import s from './header.module.scss'
-import { ProfileInfo } from './profile-info'
 
 import LogoutIcon from '@/assets/icons/logout-icon.tsx'
 import PersonIcon from '@/assets/icons/person-icon.tsx'
 import { Dropdown } from '@/components/ui/dropDownMenu'
 import { DropdownItem } from '@/components/ui/dropDownMenu/drop-down-item'
 import { DropDownSeparator } from '@/components/ui/dropDownMenu/drop-down-separator'
-import { ProfileMoreInfo } from '@/components/ui/header/profile-more-info'
 import { Typography } from '@/components/ui/typography'
 
 type HeaderPropsType = {

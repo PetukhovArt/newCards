@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import { ProfileInfo } from '../profile-info'
+import { ProfileMoreInfo } from '../profile-more-info'
 import { Typography } from '../typography'
 
 import { Dropdown } from './dropDownMenu.tsx'
@@ -12,8 +14,6 @@ import PersonIcon from '@/assets/icons/person-icon.tsx'
 import { Button } from '@/components/ui/button'
 import { DropdownItem } from '@/components/ui/dropDownMenu/drop-down-item'
 import { DropDownSeparator } from '@/components/ui/dropDownMenu/drop-down-separator/drop-down-separator.tsx'
-import { ProfileInfo } from '@/components/ui/header/profile-info'
-import { ProfileMoreInfo } from '@/components/ui/header/profile-more-info'
 
 const meta = {
   title: 'Components/Dropdown',

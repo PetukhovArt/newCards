@@ -1,31 +1,65 @@
-import { useController, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
+import s from './login-form.module.scss'
+
+import { loginSchema } from '@/common/schemas/login-schema.ts'
 import { Button } from '@/components/ui/button'
-import { TextField } from '@/components/ui/text-field'
+import { Card } from '@/components/ui/card'
+import { ControlledCheckbox, ControlledTextField } from '@/components/ui/controlled'
+import { Typography } from '@/components/ui/typography'
 
-type FormValues = {
-  login: string
-  password: string
+export type LoginFormType = z.infer<typeof loginSchema>
+
+type LoginFormPropsType = {
+  linkPath: string
+  onSubmitHandler: (data: LoginFormType) => void
 }
+export const LoginForm = (props: LoginFormPropsType) => {
+  const { linkPath, onSubmitHandler } = props
 
-export const LoginForm = () => {
-  const { register, handleSubmit, control } = useForm<FormValues>()
+  const { handleSubmit, control } = useForm<LoginFormPropsType>({
+    resolver: zodResolver(loginSchema),
+  })
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = handleSubmit(data => {
     console.log(data)
-  }
-  const {
-    field: { value, onChange },
-  } = useController({
-    name: 'login',
-    control,
+    onSubmitHandler(data)
   })
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <TextField label={'login'} value={value} onChange={onChange} />
-      <TextField type={'password'} {...register('password')} label={'password'} />
-      <Button type="submit">Submit</Button>
-    </form>
+    <Card className={s.card}>
+      <Typography variant={'large'}>Sign In</Typography>
+      <form onSubmit={onSubmit}>
+        <ControlledTextField control={control} name={'email'} label={'Email'} className={s.email} />
+        <ControlledTextField
+          control={control}
+          name={'password'}
+          type={'password'}
+          label={'Password'}
+          className={s.password}
+        />
+        <ControlledCheckbox
+          control={control}
+          name={'Remember me'}
+          label={'Remember me'}
+          className={s.rememberme}
+        />
+        <Typography variant={'body2'} className={s.subtitle}>
+          Forgot Password?
+        </Typography>
+        <Button type="submit" fullWidth className={s.loginBtn}>
+          Sign In
+        </Button>
+      </form>
+
+      <Typography variant={'body2'} className={s.subtitle}>
+        Don't have an account?
+      </Typography>
+      <Button as={'a'} variant={'link'} className={s.link} href={linkPath}>
+        Sign Up
+      </Button>
+    </Card>
   )
 }

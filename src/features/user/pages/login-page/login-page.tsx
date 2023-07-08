@@ -1,7 +1,7 @@
-import { LoginForm } from '@/components/auth/login-form'
+import { LoginForm, LoginFormType } from '@/components/auth/login-form'
 
 export const LoginPage = () => {
-  const loginHandler = (data: any) => console.log(data)
+  const loginHandler = (data: LoginFormType) => console.log(data)
 
-  return <LoginForm />
+  return <LoginForm linkPath={'/login'} onSubmitHandler={loginHandler} />
 }

@@ -1,0 +1,21 @@
+@import '../styles/mixins';
+
+.container {
+  width: 1006px;
+  margin: 0 auto;
+}
+
+.navigation {
+  display: flex;
+  gap: 10px;
+}
+
+.main {
+  @include flex-block;
+
+  height: calc(100% - 60px);
+  margin-top: 36px;
+
+  //font-size: calc(10px + 2vmin);
+  background: var(--color-dark-900);
+}

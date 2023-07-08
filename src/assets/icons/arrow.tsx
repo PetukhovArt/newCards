@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { SVGProps, Ref, forwardRef, memo, useState, useEffect } from 'react'
 
 type Direction = 'asc' | 'desc'

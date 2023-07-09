@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Modal } from '@/components/ui/modals'
 
 const meta = {
-  title: 'Components/Modals/DeleteDeckModal',
+  title: 'Components/Modals/Delete Deck Modal',
   component: DeleteDeckModal,
   tags: ['autodocs'],
   argTypes: {

@@ -9,7 +9,7 @@ import {
 import { Button } from '@/components/ui/button'
 
 const meta = {
-  title: 'Components/Modals/AddEditDeckModal',
+  title: 'Components/Modals/Add and Edit Deck Modal',
   component: AddEditDeckModal,
   tags: ['autodocs'],
   argTypes: {
@@ -28,7 +28,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof AddEditDeckModal>
 
-export const AddPackModal: Story = {
+export const AddDeckModal: Story = {
   render: () => {
     const [open, setOpen] = useState(false)
     const closeHandler = () => setOpen(false)
@@ -51,7 +51,7 @@ export const AddPackModal: Story = {
   },
 }
 
-export const EditPackModal: Story = {
+export const EditDeckModal: Story = {
   render: () => {
     const [open, setOpen] = useState(false)
     const closeHandler = () => setOpen(false)

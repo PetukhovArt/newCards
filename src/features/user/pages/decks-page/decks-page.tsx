@@ -20,7 +20,7 @@ export const DecksPage = () => {
       <div className={s.filters}>
         <TextField type={'search'} className={s.search} />
         <TabSwitcher defaultValue={'all'} options={tabOptions} />
-        <Slider value={sliderValue} onChange={setSliderValue} multiple />
+        <Slider value={sliderValue} label={'Number of cards'} onChange={setSliderValue} multiple />
         <Button variant={'secondary'}>
           <DeleteIcon />
           Clear Filter

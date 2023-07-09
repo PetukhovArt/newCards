@@ -1,7 +1,8 @@
 @import '../styles/mixins';
 
 .container {
-  width: 1006px;
+  width: 100%;
+  max-width: 1006px;
   margin: 0 auto;
 }
 

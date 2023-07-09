@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
+import { ProfileAvatarBar } from '../profile-avatar-bar'
+import { ProfileAvatarCard } from '../profile-avatar-card'
 import { Typography } from '../typography'
 
 import { Dropdown } from './dropDownMenu.tsx'
@@ -12,8 +14,6 @@ import PersonIcon from '@/assets/icons/person-icon.tsx'
 import { Button } from '@/components/ui/button'
 import { DropdownItem } from '@/components/ui/dropDownMenu/drop-down-item'
 import { DropDownSeparator } from '@/components/ui/dropDownMenu/drop-down-separator/drop-down-separator.tsx'
-import { ProfileInfo } from '@/components/ui/header/profile-info'
-import { ProfileMoreInfo } from '@/components/ui/header/profile-more-info'
 
 const meta = {
   title: 'Components/Dropdown',
@@ -27,10 +27,10 @@ type Story = StoryObj<typeof meta>
 export const WithProfile: Story = {
   render: args => {
     return (
-      <Dropdown {...args} trigger={<ProfileInfo name={'Some Name'} avatar={''} />}>
+      <Dropdown {...args} trigger={<ProfileAvatarBar name={'Some Name'} avatar={''} />}>
         <>
           <DropdownItem isOption={false}>
-            <ProfileMoreInfo name={'Some Name'} email={'j&johnson@gmail.com'} avatar={''} />
+            <ProfileAvatarCard name={'Some Name'} email={'j&johnson@gmail.com'} avatar={''} />
           </DropdownItem>
           <DropDownSeparator />
           <DropdownItem>

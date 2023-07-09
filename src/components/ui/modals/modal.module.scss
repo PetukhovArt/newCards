@@ -81,7 +81,7 @@ input {
 }
 
 .contentBox {
-  @include flex-block($gap: 24px);
+  @include flex-block($gap: 24px, $align-items: flex-start);
 
   padding: 24px 0;
 }

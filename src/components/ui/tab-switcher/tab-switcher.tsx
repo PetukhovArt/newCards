@@ -3,6 +3,7 @@ import * as Tabs from '@radix-ui/react-tabs'
 import s from './tab-switcher.module.scss'
 
 import { TabTrigger } from '@/components/ui/tab-switcher/tab-trigger'
+import { Typography } from '@/components/ui/typography'
 
 type OptionType = {
   value: string
@@ -12,6 +13,7 @@ type OptionType = {
 
 type TabSwitcherPropsType = {
   options: OptionType[]
+  label?: string
   value?: string
   defaultValue?: string
   disabled?: boolean
@@ -24,6 +26,7 @@ type TabSwitcherPropsType = {
 export const TabSwitcher = (props: TabSwitcherPropsType) => {
   const {
     options,
+    label,
     value,
     defaultValue,
     disabled,
@@ -34,25 +37,28 @@ export const TabSwitcher = (props: TabSwitcherPropsType) => {
   } = props
 
   return (
-    <Tabs.Root
-      value={value}
-      defaultValue={defaultValue}
-      orientation={orientation}
-      activationMode={activationMode}
-      onValueChange={onChange}
-      className={s.TabsRoot}
-    >
-      <Tabs.List loop={loop} className={s.TabsList}>
-        {options.map(option => (
-          <TabTrigger
-            key={option.value}
-            disabled={option.disabled || disabled}
-            value={option.value}
-          >
-            {option.label}
-          </TabTrigger>
-        ))}
-      </Tabs.List>
-    </Tabs.Root>
+    <div className={s.root}>
+      {label && <Typography>{label}</Typography>}
+      <Tabs.Root
+        value={value}
+        defaultValue={defaultValue}
+        orientation={orientation}
+        activationMode={activationMode}
+        onValueChange={onChange}
+        className={s.TabsRoot}
+      >
+        <Tabs.List loop={loop} className={s.TabsList}>
+          {options.map(option => (
+            <TabTrigger
+              key={option.value}
+              disabled={option.disabled || disabled}
+              value={option.value}
+            >
+              {option.label}
+            </TabTrigger>
+          ))}
+        </Tabs.List>
+      </Tabs.Root>
+    </div>
   )
 }

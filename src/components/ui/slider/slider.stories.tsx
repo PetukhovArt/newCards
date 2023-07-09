@@ -21,7 +21,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultSlider: Story = {
+export const Default: Story = {
   render: args => {
     const [value, setValue] = useState(30)
 
@@ -30,7 +30,7 @@ export const DefaultSlider: Story = {
     return <Slider {...args} value={[value]} multiple onChange={changeHandler} />
   },
 }
-export const DisabledSlider: Story = {
+export const Disabled: Story = {
   render: args => {
     const [value, setValue] = useState(30)
 
@@ -40,7 +40,7 @@ export const DisabledSlider: Story = {
   },
 }
 
-export const MultipleSlider: Story = {
+export const Multiple: Story = {
   render: args => {
     const [value, setValue] = useState([30, 60])
 
@@ -50,4 +50,16 @@ export const MultipleSlider: Story = {
   },
 }
 
-export const SliderWithoutPropsValue: Story = {}
+export const WithLabel: Story = {
+  render: args => {
+    const [value, setValue] = useState([30, 60])
+
+    const changeHandler = (value: number[]) => setValue(value)
+
+    return (
+      <Slider {...args} value={value} label={'Number of cards'} multiple onChange={changeHandler} />
+    )
+  },
+}
+
+export const WithoutPropsValue: Story = {}

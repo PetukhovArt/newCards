@@ -16,7 +16,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const DefaultTabSwitcher: Story = {
+export const Default: Story = {
   args: {
     options: [
       { value: 'tab1', label: 'Switcher' },
@@ -26,7 +26,7 @@ export const DefaultTabSwitcher: Story = {
   },
 }
 
-export const DisabledTabSwitcher: Story = {
+export const Disabled: Story = {
   args: {
     options: [
       { value: 'tab1', label: 'Switcher' },
@@ -36,7 +36,17 @@ export const DisabledTabSwitcher: Story = {
     disabled: true,
   },
 }
-export const DisabledTabs: Story = {
+export const WithLabel: Story = {
+  args: {
+    options: [
+      { value: 'tab1', label: 'Switcher' },
+      { value: 'tab2', label: 'Switcher' },
+      { value: 'tab3', label: 'Switcher' },
+    ],
+    label: 'Show Decks',
+  },
+}
+export const DisabledOptions: Story = {
   args: {
     options: [
       { value: 'tab1', label: 'Switcher', disabled: true },

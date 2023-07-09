@@ -43,6 +43,8 @@ export const AddEditDeckModal = (props: AddEditPackModalPropsType) => {
 
   const confirmHandler = () => {
     onConfirm?.({ deckName: name, isPrivate: privateDeck })
+    setName('')
+    setPrivateDeck(false)
   }
 
   return (

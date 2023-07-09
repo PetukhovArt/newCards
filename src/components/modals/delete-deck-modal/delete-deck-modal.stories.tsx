@@ -2,13 +2,13 @@ import { useState } from 'react'
 
 import { Meta, StoryObj } from '@storybook/react'
 
-import { DeletePackModal } from '@/components/modals/delete-pack-modal/delete-pack-modal.tsx'
+import { DeleteDeckModal } from '@/components/modals/delete-deck-modal/delete-deck-modal.tsx'
 import { Button } from '@/components/ui/button'
 import { Modal } from '@/components/ui/modals'
 
 const meta = {
-  title: 'Modals/DeletePackModal',
-  component: DeletePackModal,
+  title: 'Components/Modals/DeleteDeckModal',
+  component: DeleteDeckModal,
   tags: ['autodocs'],
   argTypes: {
     onClose: {
@@ -21,7 +21,7 @@ const meta = {
       action: 'cancel',
     },
   },
-} satisfies Meta<typeof DeletePackModal>
+} satisfies Meta<typeof DeleteDeckModal>
 
 export default meta
 type Story = StoryObj<typeof Modal>
@@ -34,8 +34,8 @@ export const Default: Story = {
 
     return (
       <>
-        <Button onClick={openHandler}>Delete Pack</Button>
-        <DeletePackModal {...args} open={open} deckName={'Some Name'} onClose={closeHandler} />
+        <Button onClick={openHandler}>Delete Deck</Button>
+        <DeleteDeckModal {...args} open={open} deckName={'Some Name'} onClose={closeHandler} />
       </>
     )
   },

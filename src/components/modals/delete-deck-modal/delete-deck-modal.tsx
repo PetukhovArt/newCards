@@ -10,15 +10,15 @@ type DeletePackModalPropsType = {
   onCancel?: () => void
 }
 
-export const DeletePackModal = (props: DeletePackModalPropsType) => {
+export const DeleteDeckModal = (props: DeletePackModalPropsType) => {
   const { open, deckName, onClose, onDelete, onCancel } = props
 
   return (
     <Modal
-      title={'Delete Pack'}
+      title={'Delete Deck'}
       open={open}
       onClose={onClose}
-      renderActionButton={() => <Button onClick={onDelete}>Delete Pack</Button>}
+      renderActionButton={() => <Button onClick={onDelete}>Delete Deck</Button>}
       renderCancelButton={() => (
         <Button onClick={onCancel} variant={'secondary'}>
           Cancel

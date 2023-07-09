@@ -3,13 +3,20 @@
   flex-direction: column;
   width: 100%;
 
+  .addNewDeck {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .filters {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     align-items: flex-end;
     justify-content: space-between;
 
     width: 100%;
+    margin-top: 8px;
 
     .search {
       width: 300px;

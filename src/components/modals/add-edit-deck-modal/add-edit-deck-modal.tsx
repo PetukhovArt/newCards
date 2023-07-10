@@ -1,13 +1,19 @@
 import { ChangeEvent, useState } from 'react'
 
+import s from './add-edit-deck-modal.module.scss'
+
+import ChangeCoverIcon from '@/assets/icons/change-cover-icon.tsx'
+import logo from '@/assets/images/Logo.svg'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
+import { FileInput } from '@/components/ui/file-input'
 import { Modal } from '@/components/ui/modals'
 import { TextField } from '@/components/ui/text-field'
 
 export type DeckType = {
   deckName: string
   isPrivate: boolean
+  deckCover?: string
 }
 
 type ModalConditional =
@@ -40,11 +46,16 @@ export const AddEditDeckModal = (props: AddEditPackModalPropsType) => {
   const changePrivateDeckHandler = (checked: boolean) => {
     setPrivateDeck(checked)
   }
+  const [deckCover, setDeckCover] = useState('')
+  const changeDeckCoverHandler = (deckCover: File) => {
+    setDeckCover(deckCover.name)
+  }
 
   const confirmHandler = () => {
-    onConfirm?.({ deckName: name, isPrivate: privateDeck })
+    onConfirm?.({ deckName: name, isPrivate: privateDeck, deckCover })
     setName('')
     setPrivateDeck(false)
+    setDeckCover('')
   }
 
   return (
@@ -61,6 +72,20 @@ export const AddEditDeckModal = (props: AddEditPackModalPropsType) => {
         </Button>
       )}
     >
+      {type === 'add' && (
+        <>
+          {deckCover && <img src={logo} alt={'cover'} className={s.cover} />}
+          <FileInput
+            onChange={changeDeckCoverHandler}
+            trigger={
+              <Button variant={'secondary'} fullWidth>
+                <ChangeCoverIcon />
+                {deckCover ? 'Change Cover' : 'Set Cover'}
+              </Button>
+            }
+          />
+        </>
+      )}
       <TextField label={'Deck Name'} value={name} onChange={changeDeckNameHandler} />
       <Checkbox checked={privateDeck} onChange={changePrivateDeckHandler} label={'Private deck'} />
     </Modal>

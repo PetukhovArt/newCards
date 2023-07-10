@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { Meta, StoryObj } from '@storybook/react'
 
+import logo from '@/assets/images/Logo.svg'
 import {
   AddEditDeckModal,
   DeckType,
@@ -67,6 +68,7 @@ export const EditDeckModal: Story = {
           open={open}
           isPrivateDeck={true}
           deckName={'Some Deck Name'}
+          deckCover={logo}
           onClose={closeHandler}
           onConfirm={confirmHandler}
           onCancel={cancelHandler}

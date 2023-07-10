@@ -23,15 +23,16 @@ export const FileInput = (props: FileInputPropsType) => {
   }
 
   const classNames = {
-    trigger: clsx(s.trigger),
-    input: clsx(s.input),
+    container: s.container,
+    trigger: clsx(s.trigger, disabled && s.disabled),
+    input: s.input,
   }
 
   return (
-    <div>
-      <button onClick={handleUploadClick} disabled={disabled} className={classNames.trigger}>
+    <div className={classNames.container}>
+      <span onClick={handleUploadClick} className={classNames.trigger}>
         {trigger}
-      </button>
+      </span>
       <input type="file" ref={inputRef} onChange={handleFileChange} className={classNames.input} />
     </div>
   )

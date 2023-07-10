@@ -1,13 +1,15 @@
-.trigger {
-  all: unset;
+.container {
+  width: 100%;
 
-  cursor: pointer;
+  .trigger {
+    cursor: pointer;
+  }
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .disabled {
+    pointer-events: none;
+  }
 
-.input {
-  display: none;
+  .input {
+    display: none;
+  }
 }

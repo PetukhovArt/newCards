@@ -1,5 +1,11 @@
-.cover {
+.coverContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  max-width: 485px;
-  height: auto;
+
+  .cover {
+    max-width: 485px;
+    max-height: 210px;
+  }
 }

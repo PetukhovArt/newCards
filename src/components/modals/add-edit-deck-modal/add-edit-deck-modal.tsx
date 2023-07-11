@@ -49,8 +49,8 @@ export const AddEditDeckModal = (props: AddEditPackModalPropsType) => {
     setPrivateDeck(checked)
   }
   const [cover, setCover] = useState(deckCover || '')
-  const changeDeckCoverHandler = (deckCover: File) => {
-    setCover(deckCover.name)
+  const changeDeckCoverHandler = (deckCover: string) => {
+    setCover(deckCover)
   }
 
   const confirmHandler = () => {
@@ -74,7 +74,9 @@ export const AddEditDeckModal = (props: AddEditPackModalPropsType) => {
         </Button>
       )}
     >
-      <img src={cover || nocover} alt={'cover'} className={s.cover} />
+      <div className={s.coverContainer}>
+        <img src={cover || nocover} alt={'cover'} className={s.cover} />
+      </div>
       <FileInput
         onChange={changeDeckCoverHandler}
         trigger={

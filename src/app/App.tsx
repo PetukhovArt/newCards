@@ -17,6 +17,7 @@ export function App() {
         </div>
       </div>
       <div className={s.navigation}>
+        <NavLink to={'/login'}>login</NavLink>
         <NavLink to={'/profile'}>profile</NavLink>
         <NavLink to={'/register'}>register</NavLink>
         <NavLink to={'/forgot-password'}>forgot password</NavLink>

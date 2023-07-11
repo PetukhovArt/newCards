@@ -13,13 +13,13 @@ import { Typography } from '@/components/ui/typography'
 export type LoginFormType = z.infer<typeof loginSchema>
 
 type LoginFormPropsType = {
-  linkPath: string
+  linkPath: { login: string; forgotPassword: string }
   onSubmitHandler: (data: LoginFormType) => void
 }
 export const LoginForm = (props: LoginFormPropsType) => {
   const { linkPath, onSubmitHandler } = props
 
-  const { handleSubmit, control } = useForm<LoginFormPropsType>({
+  const { control, handleSubmit } = useForm<LoginFormType>({
     resolver: zodResolver(loginSchema),
   })
 
@@ -40,24 +40,22 @@ export const LoginForm = (props: LoginFormPropsType) => {
           label={'Password'}
           className={s.password}
         />
-        <ControlledCheckbox
-          control={control}
-          name={'Remember me'}
-          label={'Remember me'}
-          className={s.rememberme}
-        />
-        <Typography variant={'body2'} className={s.subtitle}>
+        <div className={s.remember_lock}>
+          <ControlledCheckbox control={control} name={'remember_me'} />
+        </div>
+
+        <Button as={'a'} variant={'link'} href={linkPath.forgotPassword} className={s.link_fogot}>
           Forgot Password?
-        </Typography>
+        </Button>
+
         <Button type="submit" fullWidth className={s.loginBtn}>
           Sign In
         </Button>
       </form>
-
       <Typography variant={'body2'} className={s.subtitle}>
-        Don't have an account?
+        Do not have an account?
       </Typography>
-      <Button as={'a'} variant={'link'} className={s.link} href={linkPath}>
+      <Button as={'a'} variant={'link'} className={s.link} href={linkPath.login}>
         Sign Up
       </Button>
     </Card>

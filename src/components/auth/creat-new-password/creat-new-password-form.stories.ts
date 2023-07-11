@@ -1,24 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { ForgotPasswordForm } from '@/components/auth/forgot-password-form'
+import { CreatNewPasswordForm } from '@/components/auth/creat-new-password/creat-new-password-form.tsx'
 
 const meta = {
   title: 'Auth/CreatNewPasswordForm',
-  component: ForgotPasswordForm,
+  component: CreatNewPasswordForm,
   tags: ['autodocs'],
-  argTypes: {
-    linkPath: {
-      options: ['/login'],
-      control: { type: 'radio' },
-    },
-  },
-} satisfies Meta<typeof ForgotPasswordForm>
+  argTypes: {},
+} satisfies Meta<typeof CreatNewPasswordForm>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: {
-    linkPath: '/login',
-  },
+  args: {},
 }

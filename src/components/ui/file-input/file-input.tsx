@@ -4,8 +4,19 @@ import clsx from 'clsx'
 
 import s from './file-input.module.scss'
 
+const convertFileToBase64 = (file: File, callback: (value: string) => void) => {
+  const reader = new FileReader()
+
+  reader.onloadend = () => {
+    const file64 = reader.result as string
+
+    callback(file64)
+  }
+  reader.readAsDataURL(file)
+}
+
 type FileInputPropsType = {
-  onChange: (file: File) => void
+  onChange: (file: string) => void
   disabled?: boolean
   trigger: ReactNode
 }
@@ -17,9 +28,15 @@ export const FileInput = (props: FileInputPropsType) => {
   const handleUploadClick = () => inputRef.current?.click()
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return
-    onChange(e.target.files[0])
-    // 🚩 do the file upload here normally...
+    if (e.target.files && e.target.files.length) {
+      const file = e.target.files[0]
+
+      if (file.size < 1000000) {
+        convertFileToBase64(file, file64 => {
+          onChange(file64)
+        })
+      }
+    }
   }
 
   const classNames = {

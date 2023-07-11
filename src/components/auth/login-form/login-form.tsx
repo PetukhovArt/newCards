@@ -41,7 +41,7 @@ export const LoginForm = (props: LoginFormPropsType) => {
           className={s.password}
         />
         <div className={s.remember_lock}>
-          <ControlledCheckbox control={control} name={'rememberMe'} />
+          <ControlledCheckbox control={control} name={'rememberMe'} label={'Remember me'} />
         </div>
 
         <Button as={'a'} variant={'link'} href={linkPath.forgotPassword} className={s.link_fogot}>

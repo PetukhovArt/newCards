@@ -22,7 +22,7 @@ export const LoginForm = (props: LoginFormPropsType) => {
   const { control, handleSubmit } = useForm<LoginFormType>({
     resolver: zodResolver(loginSchema),
   })
-
+  // console.log(errors)
   const onSubmit = handleSubmit(data => {
     console.log(data)
     onSubmitHandler(data)
@@ -41,7 +41,7 @@ export const LoginForm = (props: LoginFormPropsType) => {
           className={s.password}
         />
         <div className={s.remember_lock}>
-          <ControlledCheckbox control={control} name={'remember_me'} />
+          <ControlledCheckbox control={control} name={'rememberMe'} />
         </div>
 
         <Button as={'a'} variant={'link'} href={linkPath.forgotPassword} className={s.link_fogot}>

@@ -7,5 +7,5 @@ export const loginSchema = z.object({
     .trim()
     .nonempty('Enter password')
     .min(8, 'Password must be at least 8 characters'),
-  remember_me: z.boolean().optional(),
+  rememberMe: z.boolean().optional(),
 })

@@ -18,6 +18,6 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    linkPath: '/login',
+    linkPath: { login: '/register', forgotPassword: '/forgot-password' },
   },
 }

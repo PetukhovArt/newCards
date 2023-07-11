@@ -3,6 +3,7 @@ import { createHashRouter, createRoutesFromElements, Navigate, Route } from 'rea
 import { App } from '@/app/App.tsx'
 import { CheckEmailPage } from '@/features/user/pages/check-email-page/check-email-page.tsx'
 import { ForgotPasswordPage } from '@/features/user/pages/forgot-password-page/forgot-password-page.tsx'
+import { LoginPage } from '@/features/user/pages/login-page'
 import { ProfilePage } from '@/features/user/pages/profile-page'
 import { RegisterPage } from '@/features/user/pages/register-page'
 
@@ -27,7 +28,7 @@ export const router = createHashRouter(
       <Route path={RouteNames.START_PAGE} element={<Navigate to={RouteNames.PROFILE} />} />
       {/*<Route path={RouteNames.ERROR_PAGE} element={<ErrorPage />} />*/}
       <Route path={RouteNames.PROFILE} element={<ProfilePage />} />
-      {/*<Route path={RouteNames.LOGIN} element={<Login />} />*/}
+      <Route path={RouteNames.LOGIN} element={<LoginPage />} />
       <Route path={RouteNames.REGISTER} element={<RegisterPage />} />
       <Route path={RouteNames.CHECK_EMAIL} element={<CheckEmailPage />} />
       {/*<Route path={RouteNames.SET_NEW_PASSWORD} element={<SetPassword />} />*/}

@@ -1,0 +1,61 @@
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+
+import s from './creat-new-password-form.module.scss'
+
+import { forgotPasswordSchema } from '@/common/schemas'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { ControlledTextField } from '@/components/ui/controlled/controlled-text-field.tsx'
+import { Typography } from '@/components/ui/typography'
+
+export type ForgotFormValues = {
+  email: string
+}
+type ForgotPasswordFormType = {
+  onSubmitCallback: (data: ForgotFormValues) => void
+  linkPath: string
+}
+
+type Form = z.infer<typeof forgotPasswordSchema>
+
+export const CreatNewPasswordForm = ({ onSubmitCallback, linkPath }: ForgotPasswordFormType) => {
+  const { handleSubmit, control } = useForm<Form>({
+    resolver: zodResolver(forgotPasswordSchema),
+    mode: 'onSubmit',
+  })
+
+  const onSubmit = handleSubmit(data => {
+    onSubmitCallback(data)
+  })
+
+  return (
+    <Card className={s.card}>
+      <Typography variant={'large'} className={s.title}>
+        Forgot your password?
+      </Typography>
+
+      <form onSubmit={onSubmit}>
+        <ControlledTextField
+          control={control}
+          label={'Email'}
+          name={'email'}
+          className={s.textfield}
+        />
+        <Typography variant={'body2'} color={'form'} className={s.description}>
+          Enter your email address and we will send you further instructions
+        </Typography>
+        <Button type="submit" fullWidth={true} className={s.submit}>
+          Send Instructions
+        </Button>
+      </form>
+      <Typography variant={'body2'} color={'form'} className={s.question}>
+        Did you remember your password?
+      </Typography>
+      <Button as={'a'} variant={'link'} className={s.link} href={linkPath}>
+        Try logging in
+      </Button>
+    </Card>
+  )
+}

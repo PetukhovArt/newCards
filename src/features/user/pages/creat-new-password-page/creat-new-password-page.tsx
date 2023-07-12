@@ -3,11 +3,7 @@ import s from './creat-new-password.module.scss'
 import { CreatNewPasswordForm, NewPasswordFormValues } from '@/components/auth/creat-new-password'
 
 export const CreatNewPasswordPage = () => {
-  // const [forgotPassword] = useForgotPasswordMutation()
-
-  const creatNewPasswordHandler = (data: NewPasswordFormValues) => {
-    console.log(data)
-  }
+  const creatNewPasswordHandler = (data: NewPasswordFormValues) => console.log(data)
 
   return (
     <div className={s.container}>

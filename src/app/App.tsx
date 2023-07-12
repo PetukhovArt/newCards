@@ -22,6 +22,7 @@ export function App() {
         <NavLink to={'/register'}>register</NavLink>
         <NavLink to={'/forgot-password'}>forgot password</NavLink>
         <NavLink to={'/check-email'}>check email</NavLink>
+        <NavLink to={'/set-new-password'}>set password</NavLink>
         <NavLink to={'/decks'}>decks</NavLink>
       </div>
     </div>

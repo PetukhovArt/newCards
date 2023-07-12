@@ -23,7 +23,7 @@ type Story = StoryObj<typeof FileInput>
 export const UploadWithButton: Story = {
   render: args => {
     const [file, setFile] = useState('')
-    const changeFileHandler = (file: File) => setFile(file.name)
+    const changeFileHandler = (file: string) => setFile(file)
 
     return (
       <div>
@@ -44,7 +44,7 @@ export const UploadWithButton: Story = {
 export const UploadWithIcon: Story = {
   render: args => {
     const [file, setFile] = useState('')
-    const changeFileHandler = (file: File) => setFile(file.name)
+    const changeFileHandler = (file: string) => setFile(file)
 
     return (
       <div>

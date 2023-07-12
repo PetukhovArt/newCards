@@ -34,7 +34,7 @@
 
   border-radius: 50%;
 
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
 
   &.disabled {
     cursor: default;
@@ -45,9 +45,8 @@
   }
 
   &:focus-within,
-  &:hover:not(.disabled)
-  //&:hover .root:not([data-state='checked'])
-  {
+  &:hover:not(.disabled),
+  &:hover .root:not([data-state='checked']) {
     background-color: var(--color-dark-100);
   }
 }
@@ -59,27 +58,32 @@
   align-items: center;
   justify-content: center;
 
-  width: 18px;
-  height: 18px;
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
 
-  background-color: inherit;
-  border: 2px solid var(--color-light-900);
+  border: none;
   border-radius: 2px;
+
+  //border: 2px solid var(--color-light-900);
+  outline: 2px solid var(--color-light-900);
 
   transition: 0.2s ease-in-out;
 
-  &:focus:not(.disabled) {
-    background-color: var(--color-dark-100);
-  }
+  //&:focus:not(.disabled) {
+  //  background-color: var(--color-light-100);
+  //}
 
   &:disabled {
     cursor: initial;
-    background-color: inherit;
-  }
 
-  &:hover:not(.disabled) {
     //background-color: var(--color-dark-100);
   }
+}
+
+.checked {
+  background-color: var(--color-light-100);
+  border: none;
 }
 
 .indicator {

@@ -37,7 +37,7 @@ export const DefaultModal: Story = {
   render: args => {
     const [open, setOpen] = useState(false)
     const handler = () => {
-      alert('Modal closed!')
+      console.log('Modal closed')
       setOpen(!open)
     }
 
@@ -62,7 +62,7 @@ export const ModalWithSaveButton: Story = {
   render: args => {
     const [open, setOpen] = useState(false)
     const handler = () => {
-      alert('Modal closed!')
+      console.log('Modal closed')
       setOpen(!open)
     }
 
@@ -92,7 +92,7 @@ export const ModalWithDoubleButton: Story = {
   render: args => {
     const [open, setOpen] = useState(false)
     const handler = () => {
-      alert('Modal closed!')
+      console.log('Modal closed')
       setOpen(!open)
     }
 
@@ -115,6 +115,7 @@ export const ModalWithDoubleButton: Story = {
           <TextField type={'password'} />
           <TextField type={'search'} />
         </Modal>
+        <div>fdgfgdfg</div>
       </>
     )
   },

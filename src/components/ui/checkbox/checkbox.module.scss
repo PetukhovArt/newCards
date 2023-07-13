@@ -32,6 +32,7 @@
 
   padding: 8px;
 
+  background-color: inherit;
   border-radius: 50%;
 
   transition: 0.1s ease-in-out;
@@ -44,9 +45,9 @@
     background-color: var(--color-dark-100);
   }
 
-  &:focus-within,
+  &:focus-within:not(.disabled),
   &:hover:not(.disabled),
-  &:hover .root:not([data-state='checked']) {
+  &:hover .root:not([data-state='checked'], .disabled) {
     background-color: var(--color-dark-100);
   }
 }
@@ -64,26 +65,23 @@
 
   border: none;
   border-radius: 2px;
-
-  //border: 2px solid var(--color-light-900);
   outline: 2px solid var(--color-light-900);
 
   transition: 0.2s ease-in-out;
 
-  //&:focus:not(.disabled) {
-  //  background-color: var(--color-light-100);
-  //}
-
   &:disabled {
     cursor: initial;
-
-    //background-color: var(--color-dark-100);
+    outline: 2px solid var(--color-dark-100);
   }
 }
 
 .checked {
   background-color: var(--color-light-100);
-  border: none;
+  outline: none;
+
+  &.disabled {
+    background-color: var(--color-dark-100);
+  }
 }
 
 .indicator {

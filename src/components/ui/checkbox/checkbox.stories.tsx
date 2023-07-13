@@ -32,7 +32,7 @@ export const Default: Story = {
           checked={checked}
           onChange={() => setChecked(!checked)}
         />
-        {/*<div>Checked: {checked ? 'true' : 'false'}</div>*/}
+        <div>Checked: {checked ? 'true' : 'false'}</div>
       </>
     )
   },

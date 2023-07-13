@@ -32,11 +32,21 @@ export const Default: Story = {
           checked={checked}
           onChange={() => setChecked(!checked)}
         />
-        <div>Checked: {checked ? 'true' : 'false'}</div>
+        {/*<div>Checked: {checked ? 'true' : 'false'}</div>*/}
       </>
     )
   },
 }
-export const Disabled: Story = {
+export const Checked: Story = {
+  args: { disabled: false, checked: true },
+}
+export const NotChecked: Story = {
+  args: { disabled: false, checked: false },
+}
+export const DisabledAndChecked: Story = {
+  args: { disabled: true, checked: true },
+}
+
+export const DisabledAndNotChecked: Story = {
   args: { disabled: true, checked: false },
 }

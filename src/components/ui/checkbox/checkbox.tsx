@@ -6,7 +6,7 @@ import clsx from 'clsx'
 
 import s from './checkbox.module.scss'
 
-import Check from '@/assets/icons/check.tsx'
+import { CheckIcon } from '@/assets/icons/check-icon.tsx'
 
 export type CheckboxPropsType = {
   checked: boolean | string
@@ -44,7 +44,7 @@ export const Checkbox: FC<CheckboxPropsType> = ({
         >
           {checked && (
             <CheckboxRadix.Indicator className={classNames.indicator}>
-              <Check color={disabled ? 'var(--color-light-700' : 'black'} />
+              <CheckIcon color={disabled ? 'var(--color-light-700' : 'black'} />
             </CheckboxRadix.Indicator>
           )}
         </CheckboxRadix.Root>

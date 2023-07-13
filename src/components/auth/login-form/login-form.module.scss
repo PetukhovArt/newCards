@@ -1,0 +1,45 @@
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: 2.05rem 2.25rem 1.2rem;
+  text-align: center;
+
+  .email {
+    margin-top: 1.7rem;
+    text-align: left;
+  }
+
+  .password {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .remember_lock {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+    margin-top: 1.12rem;
+
+    //padding: 0.375rem 0.625rem 0.375rem 0.375rem;
+  }
+
+  .loginBtn {
+    margin-top: 4.13rem;
+  }
+
+  .subtitle {
+    margin-top: 1.25rem;
+    color: var(--color-light-900);
+  }
+
+  .link_fogot {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--light-100);
+  }
+
+  .link {
+    color: var(--color-accent-500);
+    text-decoration: underline;
+  }
+}

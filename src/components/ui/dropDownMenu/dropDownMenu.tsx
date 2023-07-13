@@ -31,8 +31,8 @@ DropdownProps) => {
         <button className="IconButton">{trigger}</button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content loop={loop} className={s.DropdownMenuContent} sideOffset={5}>
-          <DropdownMenu.Arrow className={s.DropdownMenuArrow} />
+        <DropdownMenu.Content loop={loop} className={s.dropdownMenuContent} sideOffset={5}>
+          <DropdownMenu.Arrow className={s.dropdownMenuArrow} />
           {children}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>

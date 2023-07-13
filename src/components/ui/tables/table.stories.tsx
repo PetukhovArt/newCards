@@ -4,7 +4,7 @@ import { ReadMore } from '../read-more/read-more.tsx'
 
 import { Table } from './table.tsx'
 
-import { Arrow } from '@/assets/icons/arrow.tsx'
+import { ArrowIcon } from '@/assets/icons/arrow-icon.tsx'
 import DeleteIcon from '@/assets/icons/delete-icon.tsx'
 import EditIcon from '@/assets/icons/edit-icon.tsx'
 import { PlayIcon } from '@/assets/icons/play-icon.tsx'
@@ -169,7 +169,7 @@ export const WithReadMore = {
             <Table.HeadCell>
               <div>
                 <span>Name</span>
-                <Arrow />
+                <ArrowIcon />
               </div>
             </Table.HeadCell>
             <Table.HeadCell align="center">Description</Table.HeadCell>

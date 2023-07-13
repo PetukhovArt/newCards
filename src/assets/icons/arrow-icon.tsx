@@ -45,4 +45,4 @@ const SvgComponent = (props: Props, ref: Ref<SVGSVGElement>) => {
 
 const ForwardRef = forwardRef(SvgComponent)
 
-export const Arrow = memo(ForwardRef)
+export const ArrowIcon = memo(ForwardRef)

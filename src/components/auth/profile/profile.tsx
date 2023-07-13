@@ -24,12 +24,12 @@ type ProfilePropsType = {
   name: string
   email: string
   avatar: string
-  logoutHandler: () => void
-  changeProfileHandler: (profile: UpdateProfileType) => void
+  onLogout: () => void
+  onChangeProfile: (profile: UpdateProfileType) => void
 }
 
 export const Profile = (props: ProfilePropsType) => {
-  const { name, email, avatar, logoutHandler, changeProfileHandler } = props
+  const { name, email, avatar, onLogout, onChangeProfile } = props
 
   const { control, handleSubmit } = useForm<UpdateUserNameType>({
     defaultValues: { name },
@@ -40,11 +40,11 @@ export const Profile = (props: ProfilePropsType) => {
   const editModeOnHandler = () => setEditMode(true)
 
   const onSubmit = handleSubmit(data => {
-    changeProfileHandler({ name: data.name })
+    onChangeProfile({ name: data.name })
     setEditMode(false)
   })
 
-  const changeAvatarHandler = (avatar: File) => changeProfileHandler({ avatar: avatar.name })
+  const changeAvatarHandler = (avatar: string) => onChangeProfile({ avatar })
 
   return (
     <Card className={s.card}>
@@ -80,7 +80,7 @@ export const Profile = (props: ProfilePropsType) => {
           <Typography variant={'body2'} className={s.email}>
             {email}
           </Typography>
-          <Button variant={'secondary'} onClick={logoutHandler} className={s.logoutBtn}>
+          <Button variant={'secondary'} onClick={onLogout} className={s.logoutBtn}>
             <LogoutIcon />
             Logout
           </Button>

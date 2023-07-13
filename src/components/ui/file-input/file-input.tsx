@@ -4,8 +4,19 @@ import clsx from 'clsx'
 
 import s from './file-input.module.scss'
 
+const convertFileToBase64 = (file: File, callback: (value: string) => void) => {
+  const reader = new FileReader()
+
+  reader.onloadend = () => {
+    const file64 = reader.result as string
+
+    callback(file64)
+  }
+  reader.readAsDataURL(file)
+}
+
 type FileInputPropsType = {
-  onChange: (file: File) => void
+  onChange: (file: string) => void
   disabled?: boolean
   trigger: ReactNode
 }
@@ -17,21 +28,28 @@ export const FileInput = (props: FileInputPropsType) => {
   const handleUploadClick = () => inputRef.current?.click()
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files) return
-    onChange(e.target.files[0])
-    // 🚩 do the file upload here normally...
+    if (e.target.files && e.target.files.length) {
+      const file = e.target.files[0]
+
+      if (file.size < 1000000) {
+        convertFileToBase64(file, file64 => {
+          onChange(file64)
+        })
+      }
+    }
   }
 
   const classNames = {
-    trigger: clsx(s.trigger),
-    input: clsx(s.input),
+    container: s.container,
+    trigger: clsx(s.trigger, disabled && s.disabled),
+    input: s.input,
   }
 
   return (
-    <div>
-      <button onClick={handleUploadClick} disabled={disabled} className={classNames.trigger}>
+    <div className={classNames.container}>
+      <span onClick={handleUploadClick} className={classNames.trigger}>
         {trigger}
-      </button>
+      </span>
       <input type="file" ref={inputRef} onChange={handleFileChange} className={classNames.input} />
     </div>
   )

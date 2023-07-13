@@ -15,6 +15,6 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     </defs>
   </svg>
 )
-const Star = memo(SvgComponent)
+const StarIcon = memo(SvgComponent)
 
-export default Star
+export default StarIcon

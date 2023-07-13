@@ -17,10 +17,12 @@ export function App() {
         </div>
       </div>
       <div className={s.navigation}>
+        <NavLink to={'/login'}>login</NavLink>
         <NavLink to={'/profile'}>profile</NavLink>
         <NavLink to={'/register'}>register</NavLink>
         <NavLink to={'/forgot-password'}>forgot password</NavLink>
         <NavLink to={'/check-email'}>check email</NavLink>
+        <NavLink to={'/set-new-password'}>set password</NavLink>
         <NavLink to={'/decks'}>decks</NavLink>
       </div>
     </div>

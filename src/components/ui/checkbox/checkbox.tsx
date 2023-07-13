@@ -6,8 +6,7 @@ import clsx from 'clsx'
 
 import s from './checkbox.module.scss'
 
-import checkBoxDefaultSelected from '@/assets/icons/checkBoxDefaultSelected.svg'
-import checkedDisabled from '@/assets/icons/checkedDisabled.svg'
+import { CheckIcon } from '@/assets/icons/check-icon.tsx'
 
 export type CheckboxPropsType = {
   checked: boolean | string
@@ -28,8 +27,8 @@ export const Checkbox: FC<CheckboxPropsType> = ({
   const classNames = {
     container: s.container,
     buttonWrapper: clsx(s.buttonWrapper, disabled && s.disabled),
-    root: s.root,
-    indicator: s.indicator,
+    root: clsx(s.root, checked && s.checked, disabled && s.disabled),
+    indicator: clsx(s.indicator, disabled && s.disabled),
     label: clsx(s.label, disabled && s.disabled),
   }
 
@@ -45,7 +44,7 @@ export const Checkbox: FC<CheckboxPropsType> = ({
         >
           {checked && (
             <CheckboxRadix.Indicator className={classNames.indicator}>
-              <img src={!disabled ? checkBoxDefaultSelected : checkedDisabled} alt="selected" />
+              <CheckIcon color={disabled ? 'var(--color-light-700' : 'black'} />
             </CheckboxRadix.Indicator>
           )}
         </CheckboxRadix.Root>

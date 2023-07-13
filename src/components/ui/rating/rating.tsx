@@ -1,7 +1,7 @@
 import s from './rating.module.scss'
 
-import StarOutline from '@/assets/icons/star-outline.tsx'
-import Star from '@/assets/icons/star.tsx'
+import StarIcon from '@/assets/icons/star-icon.tsx'
+import StarOutlineIcon from '@/assets/icons/star-outline-icon.tsx'
 
 type RatingPropsType = {
   value: number
@@ -11,11 +11,11 @@ export const Rating = ({ value }: RatingPropsType) => {
 
   return (
     <div className={s.rating}>
-      {ratingValue > 0 ? <Star /> : <StarOutline />}
-      {ratingValue >= 2 ? <Star /> : <StarOutline />}
-      {ratingValue >= 3 ? <Star /> : <StarOutline />}
-      {ratingValue >= 4 ? <Star /> : <StarOutline />}
-      {ratingValue >= 5 ? <Star /> : <StarOutline />}
+      {ratingValue > 0 ? <StarIcon /> : <StarOutlineIcon />}
+      {ratingValue >= 2 ? <StarIcon /> : <StarOutlineIcon />}
+      {ratingValue >= 3 ? <StarIcon /> : <StarOutlineIcon />}
+      {ratingValue >= 4 ? <StarIcon /> : <StarOutlineIcon />}
+      {ratingValue >= 5 ? <StarIcon /> : <StarOutlineIcon />}
     </div>
   )
 }

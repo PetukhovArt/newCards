@@ -25,15 +25,23 @@ input {
 
   height: 24px;
   margin-bottom: 23px;
-
-  //@include flex-block($flex-direction: 'row');
 }
 
 .DialogOverlay {
   position: fixed;
   inset: 0;
-  opacity: 0.5;
-  animation: overlayShow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: rgb(0 0 0 / 44%);
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes overlayShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .DialogContent {
@@ -48,8 +56,9 @@ input {
   background-color: var(--color-dark-700);
   border: 1px solid var(--color-dark-500);
   border-radius: 2px;
+  box-shadow: hsl(206deg 22% 7% / 35%) 0 10px 38px -10px, hsl(206deg 22% 7% / 20%) 0 10px 20px -15px;
 
-  animation: overlayShow 450ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
   &.sm {
     width: 367px;
@@ -147,16 +156,6 @@ input {
 
 .actionButton {
   margin-left: auto;
-}
-
-@keyframes overlayShow {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
 }
 
 @keyframes contentShow {

@@ -27,6 +27,14 @@
   line-height: var(--line-height-m);
 
   background: var(--dark-500, #333);
+
+  &.sortable > span {
+    cursor: pointer;
+  }
+
+  svg {
+    transition: transform 0.2s ease-in-out;
+  }
 }
 
 .tableCell {
@@ -36,7 +44,11 @@
   line-height: var(--line-height-m);
 
   background: var(--dark-900, #000);
-  border-bottom: 1px solid var(--color-bg-dividers);
+  border-bottom: 1px solid var(--dark-500, #333);
+}
+
+.chevronDown {
+  transform: rotate(180deg);
 }
 
 .empty {

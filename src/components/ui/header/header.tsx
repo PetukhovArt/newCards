@@ -1,4 +1,5 @@
-import logo from '../../../assets/images/Logo.svg'
+// import logo from '../../../assets/images/Logo.svg'
+import logo from '../../../assets/images/cardsLogo.png'
 import { Button } from '../button'
 
 import s from './header.module.scss'
@@ -25,7 +26,7 @@ export const Header = (props: HeaderPropsType) => {
   return (
     <div className={s.header}>
       <div className={s.container}>
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" className={s.logo} />
 
         {isLoggedIn ? (
           <Dropdown trigger={<ProfileAvatarBar name={name} avatar={avatar} />}>

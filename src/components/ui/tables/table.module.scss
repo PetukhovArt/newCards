@@ -49,6 +49,7 @@
 
 .chevronDown {
   transform: rotate(180deg);
+  transition: 0.2ms all ease-in-out;
 }
 
 .empty {

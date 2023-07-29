@@ -1,13 +1,14 @@
 import s from './forgot-password.module.scss'
 
 import { ForgotFormValues, ForgotPasswordForm } from '@/components/auth/forgot-password-form'
-import { useForgotPasswordMutation } from '@/features/user/service/user.api.ts'
+// import { useForgotPasswordMutation } from '@/features/user/service/user.api.ts'
 
 export const ForgotPasswordPage = () => {
-  const [forgotPassword] = useForgotPasswordMutation()
+  // const [forgotPassword] = useForgotPasswordMutation()
 
   const forgotPasswordHandler = (data: ForgotFormValues) => {
-    forgotPassword(data)
+    // forgotPassword(data)
+    console.log(data)
   }
 
   return (
